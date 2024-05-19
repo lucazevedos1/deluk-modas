@@ -1,0 +1,4972 @@
+<!-- Start snippet/page-index.liquid -->
+{% assign product = all_products %}
+
+{%- capture css -%}
+<style>
+  @charset "utf-8";
+  /* CSS Document */
+  /*---------------- RESET CSS -----------------*/
+  body {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0;
+    background: #fff;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+  }
+  body * {
+    font-family: 'Nimbus Sans L';
+  }
+  div,
+  ul,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li,
+  p,
+  img,
+  form,
+  input,
+  textarea {
+    margin: 0;
+    padding: 0;
+  }
+  section,
+  footer,
+  aside,
+  nav,
+  main,
+  article,
+  figure {
+    display: block;
+  }
+  table,
+  tr,
+  td {
+    border: 0;
+  }
+  a {
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+  }
+  img {
+    border: none;
+    height: auto;
+  }
+  li {
+    list-style: none;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  .img-full {
+    max-width: 100%;
+  }
+  .clearall {
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+    height: 1px;
+  }
+  .forMob,
+  .forTab {
+    display: none;
+  }
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  /*----------------------- MAIN CSS START ------------------------*/
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+  }
+  .highlight {
+    background-color: #fbfb0094;
+  }
+  /*==============banner===============*/
+  .banner {
+    float: left;
+    width: 100%;
+    height: 820px;
+    background-color: #000;
+    {% comment %} background: url({{ 'banner.jpg' | file_img_url:'2000x819' }}) no-repeat center top; {% endcomment %}
+    {% comment %} background-size: cover; {% endcomment %}
+    position: relative;
+    overflow: hidden;
+  }
+  .video-bg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    border: 0;
+    right: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    height: 100%;
+  }
+  .banner_content {
+    width: 100%;
+    max-width: 870px;
+    margin: 10px auto 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  .banner_text1 {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+  }
+  .banner_heading,
+  .banner_heading span {
+    font-family: 'FONTSPRING DEMO - Obvia';
+  }
+  .banner_heading {
+    font-size: 65px;
+    line-height: 70px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+  .banner_heading span {
+    color: #ec612a;
+  }
+  .banner_strip {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 497px;
+    margin-top: 10px;
+    padding: 19px 20px;
+    background: url({{ 'banner_strip-bg.png' | file_img_url:'497x60' }}) no-repeat center center;
+    background-size: 100%;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .banner_strip span {
+    color: #000000;
+    font-style: italic;
+  }
+  .banner_list {
+    width: 100%;
+    margin: 15px auto 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+  }
+  .banner_list ul {
+    width: 170px;
+    position: relative;
+    padding-bottom: 35px;
+  }
+  .banner_list ul li {
+    text-align: center;
+    margin-top: 35px;
+  }
+  .banner_list ul li img {
+    display: block;
+    margin: 0 auto 15px;
+    width: 44px;
+  }
+  .banner_list ul li h3 {
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+  }
+  .banner_list ul li p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #a0a0a0;
+    margin-top: 3px;
+    letter-spacing: 0.3px;
+  }
+  /*==========section1============*/
+  .section1 {
+    float: left;
+    width: 100%;
+    padding: 70px 0;
+  }
+  .sec1_left {
+    float: left;
+    width: 47%;
+  }
+  {% comment %} .prd-slide__video-wrapper:before { 
+    content: "";
+    width: 40px; 
+    height: 40px;
+    right: 0;
+    background-image: url("{{ 'icon-mute.svg' | asset_url }}");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 10px 36px 10px 10px;
+  }
+  .prd-slide__video-wrapper.active:before { 
+    content: "";
+    width: 40px; 
+    height: 40px;
+    right: 0;
+    background-image: url("{{ 'icon-play.svg' | asset_url }}");
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 10px 36px 10px 10px;
+  } {% endcomment %}
+  .prd-slide__video-wrapper .prd-slide__video-play.play{
+    display: none!important;
+    visibility: hidden!important;
+    opacity: 0!important;
+  }
+  .prd-slide__video-wrapper.active .prd-slide__video-play.play{
+    display: flex!important;
+    visibility: visible!important;
+    opacity: 1!important;
+  }
+  .prd-slide__video-wrapper .prd-slide__video-play.mute{
+    display: flex!important;
+    visibility: visible!important;
+    opacity: 1!important;
+  }
+  .prd-slide__video-wrapper.active .prd-slide__video-play.mute{
+    display: none!important;
+  }
+
+  .sec1_left .prd-slide__video-wrapper,
+  .sec1_left .prd-nav__video-wrapper {
+    position: relative;
+  }
+  .sec1_left .prd-slide__video-play {
+    position: absolute;
+    display: flex;
+    top: 10%;
+    left: 80%;
+    width: 30%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+  }
+
+  .sec1_left .slick-slide.slick-current .prd-nav__video-play {
+    display: none;
+  }
+  .sec1_right {
+    float: right;
+    width: 49%;
+    text-align: left;
+  }
+  .common_heading {
+    font-size: 45px;
+    line-height: 50px;
+    letter-spacing: -0.5px;
+    color: #010101;
+    font-weight: bold;
+    font-family: 'FONTSPRING DEMO - Obvia';
+  }
+  .sec1_right .common_heading {
+    font-size: 50px;
+    line-height: 55px;
+  }
+  .sec1_heading {
+    font-size: 38px;
+    line-height: 46px;
+    letter-spacing: -0.5px;
+    color: #ec612a;
+    font-weight: bold;
+    font-family: 'FONTSPRING DEMO - Obvia';
+    font-style: italic;
+  }
+  .sec1_review-box {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -15px;
+    width: 100%;
+    max-width: 587px;
+    height: 199px;
+    background: url({{ 's1-review-bg.png' | file_img_url:'587x199' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 45px 88px 40px 45px;
+    margin-top: 20px;
+    position: relative;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .quetes-ic {
+    position: absolute;
+    left: 35px;
+    top: 0;
+  }
+  .s1_rvw-para {
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .s1_rvw-name {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+    font-style: normal;
+  }
+  .size_box {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  .size_box-col-1 {
+    width: 70%;
+    padding-right: 20px;
+  }
+  .choose_size-hdng {
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+    letter-spacing: 0.3px;
+  }
+  .selece_size-row {
+    width: 100%;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  body.template-index .easysize_button:before{
+    content: '';
+    display: inline-block;
+    -webkit-mask-image: url(https://cdn.easysize.me/icons/lightbulb.svg);
+    mask-image: url(https://cdn.easysize.me/icons/lightbulb.svg);
+    height: 16px !important;
+    width: 16px !important;
+    margin-right: 8px !important;
+    -webkit-mask-size: 16px;
+    mask-size: 16px auto;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: #000000 !important;
+    top: 0 !important;
+  }
+  .easysize_button{
+    background: unset;
+    font-size: 16px !important;
+  }
+  .es-loaded div#easysize_button {
+    display: none !important;
+  }
+  .es-loaded #easysize_button {
+    margin-top: 0 !important;
+    background-color: none !important;
+  }
+  .size-col {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    line-height: 40px;
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+    transition: all ease 0.4s;
+    -webkit-transition: all ease 0.4s;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  .size-col.active {
+    border: 1px solid #ec612a;
+    box-shadow: 0 0 0 1px #ec612a;
+    transition: all ease 0.4s;
+    -webkit-transition: all ease 0.4s;
+  }
+  .size-guide {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    border-bottom: 1px solid #868686;
+  }
+  .cart_row {
+    width: 100%;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  .quantity-col {
+    width: 130px;
+  }
+  .price-col {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .ofr-prc {
+    font-size: 26px;
+    line-height: 26px;
+    font-weight: bold;
+    padding-left: 5px;
+    color: #ec612a;
+    letter-spacing: 0.3px;
+  }
+  .cut-prc {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #868686;
+    letter-spacing: 0.3px;
+    position: relative;
+  }
+  .cut-prc:before {
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: 48%;
+    border-bottom: 2px solid #868686;
+    content: '';
+  }
+  .cart-qty-div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 130px;
+    border: 1px solid #d7d7d7;
+    background: #fff;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .sub,
+  .add {
+    cursor: pointer;
+    float: left;
+    width: 40px;
+    height: 48px;
+    padding: 0 0 3px 0;
+    text-align: center;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 27px;
+    line-height: 24px;
+    color: #757575;
+    font-family: 'Nimbus Sans L';
+    border: none;
+  }
+  .sub {
+    border-right: 1px solid #d7d7d7;
+  }
+  .add {
+    border-left: 1px solid #d7d7d7;
+    padding-bottom: 5px;
+  }
+  .cart-qty-div input {
+    float: left;
+    border: none;
+    background: none;
+    width: 50px;
+    text-align: center;
+    height: 48px;
+    font-size: 18px;
+    color: #000000;
+    font-weight: normal;
+    -webkit-appearance: none;
+    border-radius: 0;
+    font-family: 'Nimbus Sans L';
+    outline: none;
+  }
+  .cart_button-col {
+    width: calc(100% - 150px);
+    text-align: center;
+    margin-top: 12px;
+  }
+  .ship_text {
+    font-size: 12px;
+    line-height: 16px;
+    color: #0d0d0d;
+    letter-spacing: 0.3px;
+  }
+  .ship_text img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 13px;
+    margin: -1px 5px 0 0;
+  }
+  .addTocut-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    gap: 10px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+    height: 50px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background: #ec612a;
+    border-radius: 0;
+    outline: none;
+    padding: 5px 15px;
+    font-family: 'Nimbus Sans L';
+    cursor: pointer;
+    border: none;
+    margin: 9px 0;
+    border-radius: 3px;
+  }
+  ul.btn_list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    padding: 0 15px;
+  }
+  ul.btn_list li {
+    font-size: 12px;
+    line-height: 15px;
+    color: #0d0d0d;
+    letter-spacing: 0.3px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  ul.btn_list li img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    margin: -3px 6px 0 0;
+  }
+  .about-box {
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+  }
+  .about-box_row {
+    float: left;
+    width: 100%;
+    border: 1px solid #d7d7d7;
+    margin-top: 10px;
+  }
+  .about-box_row-hdng {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding: 15px 30px 15px 25px;
+    cursor: pointer;
+    position: relative;
+    {% comment %} background: url({{ 'd-arw.png' | file_img_url:'12x12' }}) no-repeat right 20px center; {% endcomment %}
+  }
+  .about-box_row-hdng::after {
+    content: '\002b';
+    position: absolute;
+    color: #000;
+    right: 15px;
+    top: -4px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .about-box_row-hdng.active {
+    {% comment %} background: url({{ 'u-arw.png' | file_img_url:'9x3' }}) no-repeat right 20px center; {% endcomment %}
+  }
+  .about-box_row-hdng.active::after {
+    content: '\002d';
+    position: absolute;
+    color: #000;
+    right: 15px;
+    top: -4px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .about-box_row-hdng h3 {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.3px;
+    color: #000000;
+    font-weight: bold;
+  }
+  .about-box-content {
+    float: left;
+    width: 100%;
+    padding: 5px 30px 15px 25px;
+  }
+  .about_text {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.3px;
+    color: #000;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .about_text a {
+    text-decoration: underline;
+    color: #03f;
+  }
+  .about_text .cut-word {
+    position: relative;
+  }
+  .about_text .cut-word:before {
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: 56%;
+    border-bottom: 2px solid #868686;
+    content: '';
+  }
+  ul.about-box_list {
+    float: left;
+    width: 100%;
+  }
+  ul.about-box_list li {
+    float: left;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    color: #000;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+  }
+  ul.about-box_list li:before {
+    position: absolute;
+    left: 0;
+    top: 7px;
+    background: #ee703f;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    content: '';
+  }
+  /*==========section2============*/
+  .section2 {
+    float: left;
+    width: 100%;
+    height: 756px;
+    background: url({{ 'sec2-bg.jpg' | file_img_url:'2000x756' }}) no-repeat center top;
+    background-size: cover;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .sec2_left {
+    float: left;
+    width: 48%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .comn-icon {
+    display: block;
+    margin: 0 auto 15px;
+    width: 50px;
+  }
+  .sec2_bobal-strip {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 534px;
+    background: url({{ 'sec2_bobal-strip-bg.png' | file_img_url:'534x133' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 35px 55px 40px;
+    text-align: left;
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    font-style: italic;
+    position: relative;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .common_text {
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.3px;
+    color: #000;
+    margin-top: 10px;
+  }
+  .sec2_right {
+    float: right;
+    width: 40%;
+    text-align: center;
+  }
+  .sec2_vdo-btn {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 270px;
+    cursor: pointer;
+  }
+  .s2-play-btn1 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .s2-play-btn2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+  }
+  #sec2-video {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    border: 0;
+    right: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /*==========section3============*/
+  .section3 {
+    float: left;
+    width: 100%;
+    height: 720px;
+    /*background:url(../images/sec3-bg.jpg) no-repeat center top;
+      */
+    background: #fff;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  #sec3-video {
+    position: absolute;
+    left: 48.5%;
+    top: 0;
+    border: 0;
+    right: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    height: 101%;
+    object-fit: cover;
+  }
+  .sec3_row {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 515px;
+    margin-top: 60px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+  }
+  .sec3_bobal-strip {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 520px;
+    background: url({{ 'sec2_bobal-strip-bg.png' | file_img_url:'534x113' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 30px 40px 35px;
+    text-align: left;
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    font-style: italic;
+    position: relative;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .s3-btm-logo {
+    display: block;
+    margin: 70px auto 0;
+    max-width: 100%;
+  }
+  /*=========section4===========*/
+  .section4 {
+    float: left;
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  .section4.reverse {
+    flex-direction: row-reverse;
+  }
+  .sec4_content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    background: url({{ 's4-content-bg.jpg' | file_img_url:'1046x750' }}) no-repeat right bottom #140a05;
+    background-size: cover;
+  }
+  .content-end {
+    justify-content: end;
+  }
+  .content-start {
+    justify-content: start;
+  }
+  .sec4_content > div {
+    padding: 80px 0;
+    max-width: 580px;
+    width: 100%;
+  }
+  .sec4_bobal-strip {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 530px;
+    background: url({{ 'sec4_bobal-strip-bg.png' | file_img_url:'559x133' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 30px 45px 35px 30px;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    font-style: italic;
+    position: relative;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .sec4_image {
+    width: 50%;
+  }
+  .s4-rgt-img,
+  .s4-video {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /*==========section5============*/
+  .section5 {
+    float: left;
+    width: 100%;
+    background-size: cover;
+    padding: 110px 0 90px;
+  }
+  .sec5_row {
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .sec5-prod {
+    width: 50%;
+    padding: 0 40px;
+  }
+  .sec5-t-shirt {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  .sec5_right {
+    width: 50%;
+    text-align: center;
+  }
+  /*==========section6============*/
+  .section6 {
+    float: left;
+    width: 100%;
+    background: url({{ 'sec6-bg.jpg' | file_img_url:'2000x721' }}) no-repeat center top #f6f7f9;
+    background-size: cover;
+    height: 750px;
+    padding: 120px 0 90px;
+    overflow: hidden;
+  }
+  .sec6_row {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 570px;
+    position: relative;
+  }
+  .sec6_bobal-strip {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 530px;
+    background: url({{ 'sec4_bobal-strip-bg.png' | file_img_url:'559x133' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 30px 35px 35px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    font-style: italic;
+    position: relative;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .s6-other-prod {
+    position: absolute;
+    left: -250px;
+    top: -15px;
+  }
+  .s6-our-prod {
+    position: absolute;
+    right: -240px;
+    top: -5px;
+  }
+  /*==========section7============*/
+  .section7 {
+    float: left;
+    width: 100%;
+    background: url({{ 'sec7-bg.jpg' | file_img_url:'2000x870' }}) no-repeat center top;
+    background-size: cover;
+    padding: 70px 0;
+    overflow: hidden;
+  }
+  .sec7_comparision-row {
+    width: 100%;
+    max-width: 890px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 35px;
+    background: #494949;
+    padding: 25px 30px 30px;
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sec7_comparision-row:before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: #ec612a;
+    content: '';
+    z-index: -1;
+  }
+  .sec7_comparision-hdng {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .s7_prod-name {
+    width: 47%;
+    text-align: left;
+    position: relative;
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: bold;
+    font-family: 'FONTSPRING DEMO - Obvia';
+    color: #fff;
+    padding: 0 25px;
+    position: relative;
+  }
+  .s7_prod-name img {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+  .s7_comp-box {
+    float: left;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    margin-top: 20px;
+  }
+  .s7_comp-box-inr {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 25px 30px;
+    border-bottom: 1px solid #000;
+  }
+  .s7_comp-box-inr:last-child {
+    border: none;
+  }
+  .s7_comp-box-inr-col {
+    width: 41%;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.3px;
+    color: #000000;
+    text-align: left;
+  }
+  .comp-icon {
+    width: 91px;
+  }
+  .comp-icon img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  .sec7-img-left {
+    position: absolute;
+    left: -265px;
+    top: 30px;
+  }
+  .sec7-img-right {
+    position: absolute;
+    right: -270px;
+    top: 30px;
+  }
+  /*==========section8============*/
+  .section8 {
+    float: left;
+    width: 100%;
+    background: url({{ 'sec8-bg.jpg' | file_img_url:'2000x1237' }}) no-repeat center top;
+    background-size: cover;
+    padding: 70px 0;
+    overflow: hidden;
+  }
+  .sec8_left {
+    float: left;
+    width: 65%;
+    padding-left: 70px;
+    text-align: left;
+  }
+  .sec8_left .common_heading {
+    font-size: 50px;
+    line-height: 55px;
+  }
+  .sec8_row {
+    float: left;
+    width: 87%;
+    margin-top: 20px;
+  }
+  .sec8_col {
+    float: left;
+    width: 100%;
+    padding: 20px 25px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.9);
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    text-align: left;
+    border-radius: 8px;
+    position: relative;
+  }
+  .sec8_col:before {
+    position: absolute;
+    right: -105px;
+    width: 105px;
+    height: 16px;
+    top: 50%;
+    margin-top: -8px;
+    content: '';
+    background: url({{ 's8-line.png' | file_img_url:'105x16' }}) no-repeat right center;
+  }
+  .sec8_col:nth-child(1):before {
+    right: -99px;
+    width: 99px;
+    height: 201px;
+    top: 54%;
+    background: url({{ 's8-line1.png' | file_img_url:'99x211' }}) no-repeat right top;
+    background-size: contain;
+  }
+  .sec8_col:nth-child(2):before {
+    right: -105px;
+    width: 105px;
+    height: 117px;
+    top: 54%;
+    background: url({{ 's8-line2.png' | file_img_url:'105x117' }}) no-repeat right top;
+    background-size: contain;
+  }
+  .s8_col-icon {
+    width: 131px;
+  }
+  .s8_col-icon img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+  }
+  .s8_col-content {
+    width: calc(100% - 131px);
+    padding-left: 15px;
+  }
+  .s8_col-content h3 {
+    color: #ec612a;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: bold;
+    font-family: 'FONTSPRING DEMO - Obvia';
+  }
+  .s8_col-content ul {
+    margin-top: 10px;
+  }
+  .s8_col-content ul li {
+    text-align: left;
+    font-size: 18px;
+    line-height: 24px;
+    color: #b4b4b4;
+    margin-top: 5px;
+    letter-spacing: 0.3px;
+    padding-left: 28px;
+    background: url({{ 's8-tik.png' | file_img_url:'16x15' }}) no-repeat left 5px;
+  }
+  .button_box {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 312px;
+    margin-top: 35px;
+    text-align: center;
+  }
+  .common_button {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 64px;
+    background: #ec612a;
+    border-radius: 3px;
+    font-size: 20px;
+    line-height: 64px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+  }
+  .common_button img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -3px -10px 0 15px;
+  }
+  ul.common_btn-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+    padding: 0 15px;
+  }
+  ul.common_btn-list li {
+    font-size: 14px;
+    line-height: 15px;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+  ul.common_btn-list li img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 14px;
+    margin: -1px 5px 0 0;
+  }
+  /*==========section9============*/
+  .section9 {
+    float: left;
+    width: 100%;
+    background: url({{ 'sec9-bg.jpg' | file_img_url:'2000x687' }}) no-repeat center top;
+    background-size: cover;
+    padding: 70px 0;
+    overflow: hidden;
+  }
+  .sec9_row {
+    float: left;
+    width: 100%;
+    position: relative;
+  }
+  .sec9_right {
+    float: right;
+    width: 57%;
+    text-align: left;
+    padding-right: 60px;
+  }
+  .sec9_bobal-strip {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -15px;
+    width: 100%;
+    background: url({{ 'sec9_bobal-strip-bg.png' | file_img_url:'610x178' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 40px 60px 50px 50px;
+    margin-top: 40px;
+    text-align: left;
+    position: relative;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .s9-strip-ic {
+    position: absolute;
+    left: 50px;
+    top: -10px;
+  }
+  .sec9_bobal-strip p {
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+  }
+  .sec9-img {
+    position: absolute;
+    left: -80px;
+    top: -30px;
+  }
+  .warranty-seal {
+    position: absolute;
+    left: 250px;
+    top: 0;
+    border-radius: 50%;
+  }
+  /*==========section10============*/
+  .section10 {
+    float: left;
+    width: 100%;
+    background: url({{ 'sec10-bg.jpg' | file_img_url:'2000x1081' }}) no-repeat center top #0e0e0e;
+    background-size: cover;
+    padding: 60px 0;
+  }
+  .sec10__compare_row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 80px auto 0;
+    width: 100%;
+    max-width: 865px;
+  }
+  .s10__comp_col-1 {
+    float: left;
+    width: 35%;
+    text-align: left;
+  }
+  ul.s10__comp_list {
+    float: left;
+    width: 100%;
+  }
+  ul.s10__comp_list li {
+    float: left;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 15px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #272727;
+  }
+  .s10__comp_col-1 ul.s10__comp_list li {
+    justify-content: start;
+  }
+  ul.s10__comp_list li:last-child {
+    border: none;
+  }
+  ul.s10__comp_list li:first-child {
+    height: 70px;
+  }
+  ul.s10__comp_list li img {
+    display: block;
+    margin: 0 auto;
+  }
+  .s10__comp_col-2 {
+    float: left;
+    width: 24%;
+    background: #090909;
+    border: 2px solid #ec612a;
+    border-radius: 15px;
+    margin-top: -80px;
+    padding-bottom: 15px;
+  }
+  .s10__comp_col-2-top {
+    float: left;
+    width: 100%;
+    height: 78px;
+    padding: 15px;
+  }
+  .comp-logo {
+    display: block;
+    margin: 0 auto;
+    width: 141px;
+    max-width: 100%;
+  }
+  .s10__comp_col-3 {
+    float: left;
+    width: 20%;
+    background: rgba(30, 30, 30, 0.8);
+    padding-bottom: 15px;
+    border-radius: 15px;
+    margin-left: 0.5%;
+  }
+  /*==========section11============*/
+  .section11 {
+    float: left;
+    width: 100%;
+    background: #fff;
+    padding: 65px 0 80px;
+  }
+  .sec11_row {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 770px;
+    text-align: left;
+  }
+  .sec11-strip {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 649px;
+    background: url({{ 's11-strip.png' | file_img_url:'649x60' }}) no-repeat center center;
+    background-size: 100%;
+    padding: 12px 30px;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: -15px;
+    font-size: 30px;
+    line-height: 38px;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    font-family: 'FONTSPRING DEMO - Obvia';
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .s11_video-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    position: relative;
+    margin-top: 35px;
+    border: 2px solid #f4b797;
+    box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.2);
+  }
+  .sec11-vdo-img,
+  .s11_video-box video {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    cursor: pointer;
+  }
+  .playbook_heading {
+    font-size: 26px;
+    line-height: 36px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+  .playbook_box {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .playbook_row {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 30px 0;
+  }
+  .playbook_row:before {
+    position: absolute;
+    left: 17px;
+    top: 40%;
+    bottom: -30%;
+    border-left: 2px dotted #000000;
+    content: '';
+  }
+  .playbook_row:last-child:before {
+    display: none;
+  }
+  .playbook_row:after {
+    position: absolute;
+    left: 95px;
+    right: 0;
+    bottom: 0;
+    border-bottom: 1px solid #ddd;
+    content: '';
+  }
+  .playbook_row:last-child:after {
+    display: none;
+  }
+  .playbook_col-1 {
+    width: calc(100% - 330px);
+    text-align: left;
+    padding-right: 50px;
+    padding-left: 95px;
+    position: relative;
+  }
+  .playbook_col-1:before {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 37px;
+    height: 37px;
+    background: url({{ 's11-dot.png' | file_img_url:'37x37' }}) no-repeat center center;
+    background-size: 100%;
+    content: '';
+  }
+  .playbook_col-1 h3 {
+    font-size: 30px;
+    line-height: 40px;
+    color: #000;
+    font-weight: bold;
+  }
+  .playbook_col-1 p {
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.3px;
+    color: #000;
+    margin-top: 15px;
+  }
+  .s11-dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+  }
+  .playbook_col-2 {
+    width: 300px;
+  }
+  .playbook_col-2 img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+  }
+  .sec11_buttom-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin-top: 80px;
+    background: url({{ 'sec11-btm-box-bg.jpg' | file_img_url:'1172x591' }}) no-repeat center bottom #080808;
+    background-size: cover;
+    border-radius: 15px;
+    padding: 70px 70px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sec11_buttom-box-left {
+    float: left;
+    width: 60%;
+    text-align: left;
+  }
+  .sec11_buttom-box-left .common_heading {
+    font-size: 50px;
+    line-height: 55px;
+  }
+  .add-number {
+    width: fit-content;
+    display: inline-block;
+    padding: 5px 10px 0;
+    background: #ec612a;
+    border-radius: 15px;
+    line-height: 100%;
+    font-family: 'FONTSPRING DEMO - Obvia';
+  }
+  .s11_btm-box-text {
+    font-size: 24px;
+    line-height: 34px;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+    margin-top: 30px;
+  }
+  .sec11_buttom-box-left .button_box {
+    margin-top: 45px;
+  }
+  .s11-btm-img {
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
+  /*==========section12============*/
+  .section12 {
+    float: left;
+    width: 100%;
+    background: url({{ 'sec9-bg.jpg' | file_img_url:'2000x687' }}) no-repeat center top;
+    background-size: cover;
+    padding: 70px 0;
+    overflow: hidden;
+  }
+  .review_row {
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+  }
+  .review-col {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .review_video {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding: 0 15px;
+  }
+  .review_video img,
+  .review_video video {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .review-col_content {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 25px;
+  }
+  .review_hdng {
+    font-size: 20px;
+    line-height: 32px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .review_star {
+    display: block;
+    margin: 20px auto 0;
+    width: 120px;
+  }
+  .review_about {
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+    margin-top: 25px;
+    min-height: 170px;
+  }
+  .review_name {
+    font-size: 20px;
+    line-height: 28px;
+    color: #ec612a;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    margin-top: 20px;
+  }
+  /*==========section13============*/
+  .section13 {
+    float: left;
+    width: 100%;
+    background: #f4f3ed;
+    padding: 70px 0;
+  }
+  .s13_sub-hdng {
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 35px;
+  }
+  .faq-container {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 915px;
+    width: 100%;
+    margin: 30px 0 15px;
+  }
+  .up-slide-dwn {
+    float: left;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #000;
+  }
+  .accordion {
+    float: left;
+    width: 100%;
+    text-align: left;
+    {% comment %} background: url({{ 'close-ic.png' | file_img_url:'14x14' }}) no-repeat right 20px center; {% endcomment %}
+    padding: 22px 45px 22px 25px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+  }
+  .accordion::after {
+    content: '\002b';
+    position: absolute;
+    color: #000;
+    right: 15px;
+    top: -4px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .acdn-heading.accordion-open {
+    {% comment %} background: url({{ 'open-ic.png' | file_img_url:'8x2' }}) no-repeat right 20px center; {% endcomment %}
+  }
+  .acdn-heading.accordion-open::after {
+    content: '\002d';
+    position: absolute;
+    color: #000;
+    right: 15px;
+    top: -4px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .acdn-content {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding: 0 25px 10px;
+  }
+  .acdn-para {
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+  }
+  /*COMMON_CSS*/
+  .font-family1 {
+    font-family: 'Nimbus Sans L';
+  }
+  .color-white {
+    color: #fff !important;
+  }
+  .color-orange {
+    color: #ec612a !important;
+    font-family: 'FONTSPRING DEMO - Obvia';
+  }
+  .color-black {
+    color: #000 !important;
+  }
+  .margin20 {
+    margin-top: 20px !important;
+  }
+  .margin30 {
+    margin-top: 30px !important;
+  }
+  .icon-mobile{
+    display: none;
+  }
+  /*==============Media=============*/
+  @media only screen and (max-width: 1200px) {
+    .container {
+      width: 1004px;
+    }
+    .sec2_left {
+      width: 55%;
+    }
+    .sec1_review-box {
+      height: auto;
+      padding: 40px 50px 40px 40px;
+    }
+    .s1_rvw-para {
+      font-size: 17px;
+      line-height: 27px;
+    }
+    .addTocut-btn {
+      margin: 13px 0 9px;
+    }
+    .sec4_bobal-strip {
+      padding: 30px 30px 30px 25px;
+      font-size: 19px;
+      line-height: 28px;
+    }
+    .section6 {
+      height: 660px;
+      padding: 80px 0;
+    }
+    .s6-other-prod {
+      top: 30px;
+      width: 700px;
+    }
+    .s6-our-prod {
+      right: -240px;
+      top: 0;
+      width: 690px;
+    }
+    .sec8_left {
+      width: 70%;
+      padding-left: 30px;
+    }
+    .sec9_right {
+      padding-right: 0;
+    }
+    .sec9_bobal-strip p {
+      font-size: 19px;
+      line-height: 27px;
+    }
+    .warranty-seal {
+      width: 150px;
+    }
+    .sec9-img {
+      width: 470px;
+    }
+    .sec11_buttom-box {
+      padding: 50px 40px;
+    }
+    .sec11_buttom-box-left {
+      width: 60%;
+    }
+    .sec11_buttom-box-left .common_heading {
+      font-size: 45px;
+      line-height: 50px;
+    }
+    .s11-btm-img {
+      width: 500px;
+    }
+  }
+  @media only screen and (max-width: 1021px) {
+    .container {
+      width: 750px;
+    }
+    .forDesk {
+      display: none;
+    }
+    .forTab {
+      display: block;
+    }
+    .banner {
+      height: 800px;
+    }
+    .banner_heading {
+      font-size: 55px;
+      line-height: 65px;
+    }
+    .sec1_right {
+      width: 50%;
+    }
+    .common_heading {
+      font-size: 40px;
+      line-height: 45px;
+    }
+    .sec1_right .common_heading {
+      font-size: 42px;
+      line-height: 50px;
+    }
+    .sec1_heading {
+      font-size: 31px;
+      line-height: 32px;
+    }
+    .sec1_review-box {
+      padding: 25px 30px 30px 35px;
+    }
+    .quetes-ic {
+      left: 40px;
+      top: -15px;
+    }
+    .s1_rvw-para {
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .sec1_left .prd-nav__video-play {
+      width: 35px;
+      height: 35px;
+    }
+    .s1_rvw-name {
+      font-size: 12px;
+      line-height: 17px;
+    }
+    .size_box {
+      padding: 12px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .size_box-col-1 {
+      width: 100%;
+      padding-right: 0;
+    }
+    .find-your-size-wrapper .find-your-size__image {
+      max-width: 70%;
+    }
+    .choose_size-hdng {
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .size_box-col-2 {
+      position: absolute;
+      right: 12px;
+      top: 5px;
+    }
+    .size-guide {
+      font-size: 10px;
+      line-height: 15px;
+    }
+    .size-col {
+      width: auto;
+      padding: 0 15px;
+    }
+    .quantity-col {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .cart-qty-div {
+      margin: 0 0 0 20px;
+    }
+    .cart_button-col {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .addTocut-btn {
+      margin-top: 10px;
+    }
+    ul.btn_list {
+      padding: 0;
+    }
+    ul.btn_list li img {
+      width: 15px;
+      margin: 0px 4px 0 0;
+    }
+    .about-box_row-hdng {
+      padding: 15px 35px 15px 15px;
+      background-position: right 15px center;
+    }
+    .about-box_row-hdng.active {
+      background-position: right 15px center;
+    }
+    .about-box-content {
+      padding: 5px 20px 15px;
+    }
+    .section2 {
+      height: 700px;
+    }
+    .sec2_left {
+      width: 100%;
+    }
+    .sec2_right {
+      width: 100%;
+    }
+    .sec2_vdo-btn {
+      margin-top: 40px;
+    }
+    .section3 {
+      height: 680px;
+    }
+    .sec4_image {
+      width: 45%;
+    }
+    .sec4_content {
+      width: 55%;
+    }
+    .sec4_content > div {
+      padding: 60px 15px;
+    }
+    .sec4_bobal-strip {
+      padding: 22px 35px 28px 17px;
+      font-size: 16px;
+      line-height: 25px;
+      max-width: 440px;
+    }
+    .common_text {
+      font-size: 18px;
+    }
+    .section5 {
+      padding: 70px 0;
+    }
+    .sec5-t-shirt {
+      margin-top: 20px;
+    }
+    .section6 {
+      height: auto;
+      padding: 60px 0;
+    }
+    .s6-other-prod,
+    .s6-our-prod {
+      position: static;
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+      margin-top: 20px;
+    }
+    .s7_comp-box-inr-col {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .comp-icon {
+      width: 80px;
+    }
+    .section8 {
+      padding: 60px 0;
+      background: #0b0b0b;
+    }
+    .sec8_left {
+      width: 100%;
+      padding: 0 70px;
+      text-align: center;
+    }
+    .sec8_left .common_heading {
+      font-size: 40px;
+      line-height: 45px;
+    }
+    .sec8_row {
+      width: 100%;
+    }
+    .sec8_col:before {
+      display: none;
+    }
+    .section9 {
+      padding: 60px 0;
+    }
+    .sec9-img {
+      width: 350px;
+      left: -78px;
+      top: 18px;
+    }
+    .warranty-seal {
+      width: 120px;
+      left: 135px;
+      top: 15px;
+    }
+    .sec9_right {
+      width: 64%;
+    }
+    .sec9_bobal-strip {
+      padding: 35px 46px 39px 30px;
+    }
+    .sec9_bobal-strip p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .s9-strip-ic {
+      width: 40px;
+    }
+    ul.s10__comp_list li {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .sec11_buttom-box {
+      padding: 40px;
+      background-size: 100%;
+    }
+    .sec11_buttom-box-left {
+      width: 65%;
+    }
+    .s11-btm-img {
+      width: 350px;
+      top: 60px;
+    }
+    .sec11_buttom-box-left .common_heading {
+      font-size: 40px;
+      line-height: 46px;
+    }
+    .s11_btm-box-text {
+      font-size: 20px;
+      line-height: 29px;
+      margin-top: 25px;
+    }
+    .s13_sub-hdng {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .container {
+      width: 100%;
+      max-width: 600px;
+      padding: 0 15px;
+    }
+    .sec1_left .prd-slide__video-play {
+      top: 7%;
+      left: 75%;
+      width: 45%;
+    }
+    .forMob {
+      display: block;
+    }
+    .hide-mob {
+      display: none;
+    }
+    .banner {
+      height: auto;
+      /* background: url({{ 'banner_mob.jpg' |file_img_url:'600x1136' }}) no-repeat center top #0a0908; */
+      background-size: cover;
+      padding-bottom: 35px;
+    }
+    .banner_content {
+      margin-top: 20px;
+    }
+    .banner_text1 {
+      font-size: 17px;
+      line-height: 24px;
+    }
+    .banner_heading {
+      font-size: 48px;
+      line-height: 48px;
+    }
+    .banner_list {
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .bnr-vdo-m {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      /* background: url({{ 'bnr-logo-m.png' | file_img_url:'378x155' }}) no-repeat center center; */
+      background-size: 100%;
+    }
+    .video-bg-m {
+      display: inline-block;
+      vertical-align: top;
+      width: 80%;
+    }
+    .banner_strip {
+      padding: 9px 5px;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0;
+      height: 42px;
+      max-width: 360px;
+    }
+    .banner_list ul {
+      width: 48%;
+      padding-bottom: 0;
+    }
+    .banner_list ul li h3 {
+      font-size: 15px;
+    }
+    .banner_list ul li p {
+      font-size: 13px;
+      line-height: 18px;
+    }
+    .banner_list ul li {
+      margin-top: 30px;
+    }
+    .section1 {
+      padding: 30px 0;
+    }
+    .sec1_left {
+      width: 100%;
+    }
+    .sec1_right {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .sec1_right .common_heading {
+      font-size: 38px;
+      line-height: 40px;
+    }
+    .sec1_heading {
+      font-size: 29px;
+      line-height: 32px;
+    }
+    .sec1_review-box {
+      background: url({{ 's1-review-bg-m.png' | file_img_url:'373x155' }}) no-repeat center top;
+      background-size: 100%;
+      margin-left: 0;
+      padding: 36px 20px 30px 30px;
+      max-width: 360px;
+      height: 142px;
+    }    
+    .find-your-size-wrapper .find-your-size__image {
+      max-width: 90%;
+    }
+    .quetes-ic {
+      left: 35px;
+      top: -8px;
+      width: 30px;
+    }
+    .cart_row {
+      margin-top: 20px;
+    }
+    .sub,
+    .add,
+    .cart-qty-div input {
+      height: 45px;
+    }
+    ul.btn_list li {
+      font-size: 11px;
+    }
+    .section2 {
+      height: 500px;
+      padding: 30px 0;
+      background: url({{ 'sec2-bg-m.jpg' | file_img_url:'600x800' }}) no-repeat center top #000000;
+      background-size: cover;
+    }
+    .comn-icon {
+      margin: 0 auto 10px;
+      width: 40px;
+    }
+    .common_heading {
+      font-size: 29px;
+      line-height: 33px;
+      letter-spacing: 0;
+    }
+    .sec2_bobal-strip {
+      padding: 20px 30px;
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: 0.3px;
+      background: url({{ 's1-review-bg.png' | file_img_url:'587x199' }}) no-repeat center top;
+      background-size: 100%;
+      max-width: 360px;
+      height: 120px;
+    }
+    .common_text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .sec2_vdo-btn {
+      position: relative;
+      margin-top: 30px;
+    }
+    .s2-play-btn1 {
+      width: 70px;
+    }
+    .s2-play-btn2 {
+      width: 80px;
+      position: absolute;
+      right: -90px;
+      top: 20px;
+    }
+    .section3 {
+      height: auto;
+      padding: 30px 0 0;
+      background: #fefefe;
+      position: relative;
+    }
+    .section3:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      box-shadow: 0 2px 15px 5px rgba(0, 0, 0, 0.7);
+      content: '';
+    }
+    .sec3_row {
+      margin: 0;
+    }
+    .sec3_bobal-strip {
+      padding: 20px 30px;
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: 0.3px;
+      background: url({{ 's1-review-bg.png' | file_img_url:'587x199' }}) no-repeat center top;
+      background-size: 100%;
+      max-width: 360px;
+      height: 120px;
+    }
+    .s3-btm-img-m {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% + 30px);
+      margin-left: -15px;
+    }
+    .s3-btm-logo {
+      display: none;
+    }
+    #sec3-video {
+      position: static;
+      display: block;
+      margin: 20px auto 0;
+      transform: none;
+      height: auto;
+      width: 100%;
+    }
+    .sec4_content {
+      width: 100%;
+    }
+    .content-start,
+    .content-end {
+      justify-content: center;
+    }
+    .sec4_image {
+      width: 100%;
+    }
+    .sec4_content > div {
+      padding: 30px 15px;
+    }
+    .sec4_bobal-strip {
+      padding: 17px 40px 23px 25px;
+      font-size: 15px;
+      line-height: 23px;
+      max-width: 360px;
+    }
+    .section5 {
+      padding: 30px 0;
+      background-size: 100%;
+    }
+    .sec5_row {
+      flex-direction: column-reverse;
+    }
+    .sec5-prod {
+      width: 100%;
+    }
+    .sec5_right {
+      width: 100%;
+    }
+    .section6 {
+      padding: 30px 0;
+    }
+    .sec6_bobal-strip {
+      padding: 20px 30px 20px 20px;
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: 0.3px;
+      background: url({{ 's1-review-bg.png' | file_img_url:'587x199' }}) no-repeat center top;
+      background-size: 100%;
+      max-width: 360px;
+      height: 120px;
+      margin-top: 20px;
+    }
+    .sec6_row .common_text {
+      padding: 0 15px;
+    }
+    .s6-other-prod,
+    .s6-our-prod {
+      display: none;
+    }
+    .s6-prod-m {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% + 30px);
+      margin-left: -15px;
+      margin-top: 20px;
+    }
+    .sec4_bobal-strip2 {
+      background: url({{ 's1-review-bg.png' | file_img_url:'587x199' }}) no-repeat center center;
+      background-size: 100%;
+      padding: 20px 50px 30px 22px;
+      height: 120px;
+    }
+    .section7 {
+      padding: 30px 0;
+      background: url({{ 'sec7-bg-m.jpg' | file_img_url:'600x2175' }}) no-repeat center top;
+      background-size: cover;
+    }
+    .s7_row-m {
+      float: left;
+      width: 100%;
+    }
+    .sec7-img-left-m {
+      margin: 0 auto;
+      max-width: 100%;
+      width: 250px;
+    }
+    .s7-col-m {
+      float: left;
+      width: 100%;
+      background: #494949;
+      border-radius: 10px;
+      margin-top: -15px;
+      padding: 20px 15px 15px;
+      position: relative;
+    }
+    .icon-mobile{
+      margin-right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .icon-mobile img{
+      max-width: 55px;
+    }
+    .s7_prod-name {
+      width: 100%;
+      text-align: center;
+      font-size: 28px;
+      line-height: 28px;
+    }
+    .s7_prod-name img {
+      position: static;
+      display: inline-block;
+      vertical-align: middle;
+      height: 20px;
+      width: auto;
+      margin: -5px 5px 0 0;
+    }
+    .s7-col-m ul {
+      float: left;
+      width: 100%;
+      margin-top: 15px;
+      background: #ededed;
+      border-radius: 12px;
+    }
+
+    .s7-col-m ul li {
+      display: flex;
+      float: left;
+      width: 100%;
+      font-size: 17px;
+      line-height: 24px;
+      letter-spacing: 0.3px;
+      color: #000000;
+      text-align: left;
+      padding: 20px 20px;
+      border-bottom: 1px solid #000;
+    }
+    .s7-col-m ul li:last-child {
+      border: none;
+    }
+    .section8 {
+      padding: 30px 0;
+    }
+    .sec8_left {
+      padding: 0;
+    }
+    .sec8_left .common_heading {
+      font-size: 30px;
+      line-height: 36px;
+      position: relative;
+    }
+    .sec8_row {
+      margin-top: -30px;
+    }
+    .sec8_col {
+      padding: 15px 10px;
+      align-items: start;
+      background: #000;
+    }
+    .s8_col-icon {
+      width: 90px;
+    }
+    .s8_col-content {
+      width: calc(100% - 90px);
+      padding-left: 10px;
+    }
+    .s8_col-content h3 {
+      font-size: 21px;
+      line-height: 24px;
+    }
+    .s8_col-content ul li {
+      font-size: 16px;
+      line-height: 21px;
+      padding-left: 23px;
+      background-size: 13px;
+      color: #fff;
+    }
+    .s8-mob-img {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% + 30px);
+      margin-left: -15px;
+      margin-top: -20px;
+    }
+    .section9 {
+      padding: 30px 0;
+    }
+    .sec9_right {
+      width: 100%;
+    }
+    .s9_mob-img {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+    .sec9-img-m {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 250px;
+    }
+    .warranty-seal {
+      left: auto;
+      right: -20px;
+    }
+    .sec9_bobal-strip {
+      background: url({{ 's9_bobal-strip-bg-m.png' | file_img_url:'364x154' }}) no-repeat center center;
+      background-size: 100%;
+      max-width: 364px;
+      height: 154px;
+      margin: -20px 0 0;
+      padding: 30px 30px 35px 30px;
+    }
+    .sec9_bobal-strip p {
+      font-size: 15px;
+      line-height: 21px;
+    }
+    .s9-strip-ic {
+      width: 33px;
+      left: 35px;
+      top: -6px;
+    }
+    .button_box {
+      margin-top: 25px;
+    }
+    .sec9_right .button_box {
+      margin: 20px auto 0;
+      display: block;
+    }
+    .section10 {
+      background: #020202;
+      padding: 30px 0;
+    }
+    .section10 .container {
+      padding: 0 10px;
+    }
+    .sec10__compare_row {
+      margin: 50px auto 0;
+    }
+    .s10__comp_col-1 {
+      width: 40%;
+    }
+    ul.s10__comp_list li {
+      font-size: 14px;
+      line-height: 18px;
+    }
+    .s10__comp_col-1 ul.s10__comp_list li {
+      font-size: 15px;
+      line-height: 18px;
+      padding: 0 10px 0 0;
+    }
+    .s10__comp_col-2 {
+      width: 25%;
+      margin-top: -42px;
+      border-radius: 10px;
+      padding-bottom: 10px;
+    }
+    .s10__comp_col-2 ul.s10__comp_list li {
+      padding: 0 5px;
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .s10__comp_col-2-top {
+      height: 40px;
+      padding: 10px;
+    }
+    .s10__comp_col-3 {
+      width: 17%;
+      margin-left: 0.5%;
+      border-radius: 10px;
+      padding-bottom: 10px;
+    }
+    ul.s10__comp_list li img {
+      width: auto;
+      height: 15px;
+    }
+    .section11 {
+      padding: 30px 0;
+    }
+    .sec11-strip {
+      font-size: 22px;
+      line-height: 25px;
+      margin: 15px 0 0;
+      max-width: 360px;
+      background: url({{ 's11-strip-m.png' | file_img_url:'375x100' }}) no-repeat center center;
+      background-size: 100%;
+      padding: 20px 30px;
+    }
+    .s11_video-box {
+      margin-top: 30px;
+    }
+    .playbook_row {
+      padding: 20px 0 25px;
+    }
+    .playbook_heading {
+      font-size: 22px;
+      line-height: 28px;
+      margin-top: 30px;
+    }
+    .playbook_col-1 {
+      width: 100%;
+      padding: 0 0 0 40px;
+    }
+    .playbook_col-2 {
+      margin-top: 15px;
+    }
+    .playbook_col-1 h3 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .playbook_col-1 p {
+      font-size: 17px;
+      line-height: 24px;
+    }
+    .playbook_col-1:before {
+      width: 20px;
+      height: 20px;
+    }
+    .playbook_row:before {
+      left: 9px;
+      top: 40px;
+      bottom: -40px;
+    }
+    .playbook_row:after {
+      left: 40px;
+    }
+    .sec11_buttom-box {
+      margin-top: 20px;
+      padding: 25px 20px 0;
+    }
+    .sec11_buttom-box-left {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .sec11_buttom-box-left .common_heading {
+      font-size: 30px;
+      line-height: 36px;
+    }
+    .s11-btm-img {
+      position: static;
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 250px;
+    }
+    .s11_btm-box-text {
+      font-size: 18px;
+      line-height: 27px;
+      margin-top: 20px;
+    }
+    .sec11_buttom-box-left .button_box {
+      margin-top: 30px;
+    }
+    .common_button {
+      height: 60px;
+      font-size: 18px;
+      line-height: 60px;
+    }
+    ul.common_btn-list {
+      padding: 0 10px;
+    }
+    ul.common_btn-list li {
+      font-size: 13px;
+      line-height: 14px;
+    }
+    .section12 {
+      padding: 30px 0;
+    }
+    .review_row {
+      margin-top: 25px;
+    }
+    .review-col {
+      width: 100%;
+      padding: 0 10px;
+    }
+    .review_video {
+      padding: 0 10px;
+    }
+    .review-col_content {
+      margin-top: 15px;
+    }
+    .review_hdng {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    .review_star {
+      margin: 12px auto 0;
+      width: 100px;
+    }
+    .review_about {
+      font-size: 17px;
+      line-height: 25px;
+      margin-top: 20px;
+      min-height: auto;
+    }
+    .review_name {
+      font-size: 17px;
+      line-height: 25px;
+    }
+    .section13 {
+      padding: 30px 0;
+    }
+    .s13_sub-hdng {
+      font-size: 22px;
+      line-height: 28px;
+      margin-bottom: 25px;
+    }
+    .faq-container {
+      margin: 20px 0 0;
+    }
+    .accordion {
+      padding: 15px 35px 15px 15px;
+      font-size: 18px;
+      line-height: 24px;
+      background-position: right 15px center;
+    }
+    .acdn-heading.accordion-open {
+      background-position: right 15px center;
+    }
+    .acdn-content {
+      padding: 0 15px 10px;
+    }
+    .acdn-para {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 15px;
+    }
+    .margin20 {
+      margin-top: 15px !important;
+    }
+    .margin30 {
+      margin-top: 25px !important;
+    }
+  }
+  @media only screen and (max-width: 360px) {
+  }
+
+  /* Slider */
+  .slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 0 0;
+  }
+  .s2-featuresBx .slick-list {
+    padding: 20px 0 20px !important;
+  }
+  .slick-list:focus {
+    outline: none;
+  }
+  .slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+  }
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  .slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .slick-track:before,
+  .slick-track:after {
+    display: table;
+    content: '';
+  }
+  .slick-track:after {
+    clear: both;
+  }
+  .slick-loading .slick-track {
+    visibility: hidden;
+  }
+  .slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+  }
+  .s7-testiBx .slick-slide {
+    padding: 10px;
+  }
+  [dir='rtl'] .slick-slide {
+    float: right;
+  }
+  .slick-slide.slick-loading img {
+    display: none;
+  }
+  .slick-slide.dragging img {
+    pointer-events: none;
+  }
+  .slick-initialized .slick-slide {
+    display: block;
+  }
+  .slick-loading .slick-slide {
+    visibility: hidden;
+  }
+  .slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+  }
+  .slick-arrow.slick-hidden {
+    display: none;
+  }
+  /* Arrows */
+  .slick-prev,
+  .slick-next,
+  .s4-list .slick-prev,
+  .s4-list .slick-next {
+    position: absolute;
+    top: 45%;
+    display: block;
+    padding: 0;
+    outline: none;
+    border: none;
+    z-index: 2;
+    cursor: pointer;
+    width: 24px;
+    height: 44px;
+    margin-top: 0px;
+    border-radius: 50%;
+    font-size: 0;
+  }
+  .slick-prev {
+    left: 10px;
+    background: url({{ 'prev.png' | file_img_url:'26x49' }}) no-repeat top left;
+    background-size: 100%;
+  }
+  .slick-next {
+    right: 10px;
+    background: url({{ 'next.png' | file_img_url:'24x44' }}) no-repeat top right;
+    background-size: 100%;
+  }
+  .slide-div .slick-prev {
+    width: 15px;
+    height: 25px;
+    left: -15px;
+    top: 50%;
+    background: url({{ 'prev2.png' | file_img_url:'15x25' }}) no-repeat top left;
+    background-size: 100%;
+  }
+  .slide-div .slick-next {
+    width: 15px;
+    height: 25px;
+    right: -15px;
+    top: 50%;
+    background: url({{ 'next2.png' | file_img_url:'15x25' }}) no-repeat top right;
+    background-size: 100%;
+  }
+  .review_row .slick-prev {
+    top: 30%;
+    left: -10px;
+  }
+  .review_row .slick-next {
+    top: 30%;
+    right: -10px;
+  }
+  /*============dots=======*/
+  ul.slick-dots {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  ul.slick-dots li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px;
+    cursor: pointer;
+    width: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 100%;
+    text-align: center;
+    float: none;
+  }
+  ul.slick-dots li button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    text-indent: -9999px;
+    display: block;
+    outline: none;
+    border: none;
+    padding: 0;
+  }
+  ul.slick-dots li.slick-active button {
+    background: #f98d1a;
+  }
+  /*/
+  /NAV SLIDER*/
+  .slide-div {
+    float: right;
+    width: 100%;
+    height: 100%;
+    padding: 0 5px;
+  }
+  .prd-slide {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+  .slider-nav {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .slider-nav .slick-slide {
+    margin: 0 4px;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0.6px;
+  }
+  .slider-nav img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 0;
+    border: 2px solid #fff;
+  }
+  .slider-nav .slick-slide.slick-current {
+    opacity: 1;
+  }
+  .slider-nav .slick-slide.slick-current img {
+    border: 2px solid #ec612a;
+  }
+  .slider-nav .slick-track {
+    /*transform: none!important;
+ */
+  }
+  @media only screen and (max-width: 767px) {
+    .slider-nav {
+      margin-top: 10px;
+    }
+    .slide-div .slick-prev {
+      left: -10px;
+    }
+    .slide-div .slick-next {
+      right: -10px;
+    }
+    .review_row .slick-next,
+    .review_row .slick-prev {
+      top: 30%;
+      width: 18px;
+      height: 33px;
+    }
+    .review_row .slick-next {
+      right: -5px;
+    }
+    .review_row .slick-prev {
+      left: -5px;
+    }
+  }
+</style>
+{%- endcapture -%}
+{{- css | strip_newlines | replace: '    ', ' ' | replace: '   ', ' ' | replace: '  ', ' ' -}}
+
+<div class="banner">
+  {% render 'custom-header' %}
+  <div class="clearall"></div>
+  <div class="container">
+    <div class="banner_content">
+      <p class="banner_text1">
+        When Nature's Strongest Fiber Meets <br class="forMob">
+        Tailored Precision Fit
+      </p>
+      <h1 class="banner_heading"><span>THE HEMP SHIRT</span> FOR MEN</h1>
+      <div class="bnr-vdo-m forMob">
+        <video
+          class="video-bg-m"
+          width=""
+          height=""
+          preload="auto"
+          loop
+          autoplay
+          muted=""
+          playsinline=""
+          style="visibility: visible;"
+        >
+          <source src="{{ 'shirt_turnatablee.mp4' | file_url }}" type="video/mp4">
+        </video>
+      </div>
+      <div class="banner_strip">Why <span>UndrDog Hemp</span> Is The GOAT of Men's Shirts:</div>
+      <div class="banner_list">
+        {% comment %} <video
+          class="video-bg hide-mob"
+          width=""
+          height=""
+          preload="auto"
+          loop
+          autoplay
+          muted=""
+          playsinline=""
+          style="visibility: visible;"
+        >
+          <source src="{{ 'thread.mp4' | file_url }}" type="video/mp4">
+        </video> {% endcomment %}
+        <video
+          class="video-bg hide-mob"
+          width=""
+          height=""
+          preload="auto"
+          loop
+          autoplay
+          muted=""
+          playsinline=""
+          style="visibility: visible;"
+        >
+          <source src="{{ 'shirt_turnatablee.mp4' | asset_url }}" type="video/mp4">
+        </video>
+        <ul class="fl">
+          <li>
+            <img src="{{ 'banner_list-ic1.png' | file_img_url:'44x44' }}" width="44" height="44" alt="ic">
+            <h3>Lifetime Warranty</h3>
+            <p>Buy Once, Wear For Life</p>
+          </li>
+
+          <li>
+            <img src="{{ 'banner_list-ic3.png' | file_img_url:'44x44' }}" width="44" height="44" alt="ic">
+            <h3>Breathable</h3>
+            <p>No Sweat, Sniff, or Stain</p>
+          </li>
+          <li>
+            <img src="{{ 'banner_list-ic5.png' | file_img_url:'44x44' }}" width="44" height="44" alt="ic">
+            <h3>Comfortable</h3>
+            <p>Satisfyingly Soft</p>
+          </li>
+        </ul>
+        <ul class="fr">
+          <li>
+            <img src="{{ 'banner_list-ic2.png' | file_img_url:'44x44' }}" width="44" height="44" alt="ic">
+            <h3>Extra Durable</h3>
+            <p>Nature’s Strongest Fiber</p>
+          </li>
+          <li>
+            <img src="{{ 'banner_list-ic4.png' | file_img_url:'44x44' }}" width="44" height="44" alt="ic">
+            <h3>Look Jacked</h3>
+            <p>Grips Chest & Arms</p>
+          </li>
+
+          <li>
+            <img src="{{ 'banner_list-ic6.png' | file_img_url:'44x44' }}" width="44" height="44" alt="ic">
+            <h3>Sustainable</h3>
+            <p>100x Better For Earth</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section1" id="order">
+  <div class="container">
+    <div class="sec1_left">
+      <div class="slide-div">
+        {% for image in product.media %}
+          {%- if image.media_type == 'video' -%}
+            <div class="prd-slide__video-wrapper">
+               <div 
+                class="prd-slide__video-play mute"><span>Tap for sound</span><img width="20px" src="{{ 'icon-mute.svg' | asset_url }}"/> </div> 
+                <div 
+                  class="prd-slide__video-play play"><span>Tap for mute</span> <img width="20px" src="{{ 'icon-play.svg' | asset_url }}"/></div>  
+              <video class="prd-slide prd-slide-{{ forloop.index }} prd-slide__video" loading="eager" {% if image.alt == "spin-model" %} loop {% endif %} playsinline="playsinline" preload="auto" muted>
+                {% for item in image.sources %}
+                  {% if item.mime_type contains 'video' %}
+                    <source src="{{ item.url }}" type="{{ item.mime_type }}">
+                  {% endif %}
+                {% endfor %}
+              </video>
+              
+            </div>
+          {%- elsif image.media_type == 'image' -%}
+            <div>
+              <img src="{{ image | image_url }}" class="prd-slide prd-slide-{{ forloop.index }}" alt="img" width="600" height="600">
+            </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+      <div class="slider-nav">
+        {% for image in product.media %}
+          {%- if image.media_type == 'video' -%}
+            <div class="prd-nav__video-wrapper">              
+              <img src="{{ image | image_url }}" class="prd-nav prd-nav-{{ forloop.index }}" alt="img" width="600" height="600">
+            </div>
+          {%- elsif image.media_type == 'image' -%}
+            <div>
+              <img src="{{ image | image_url }}" class="prd-nav prd-nav-{{ forloop.index }}" alt="img" width="600" height="600">
+            </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="sec1_right">
+      <h2 class="common_heading">Exhibit 000: Void</h2>
+      <h2 class="sec1_heading">Made with UndrDog Hemp</h2>
+      <div class="sec1_review-box">
+        <img src="{{ 'quetes-ic.png' | file_img_url:'35x36' }}" class="quetes-ic" width="35" height="36" alt="ic">
+        <p class="s1_rvw-para">
+          "The hemp hype is legit! Super comfortable, A+ quality, durable weight, and I look jacked! Re-ordering!"
+          <span class="s1_rvw-name">- Jason S.</span>
+        </p>
+      </div>
+
+      <div class="size_box">
+        <div class="size_box-col-1">
+          <p class="choose_size-hdng">Choose Your Size</p>
+          <div class="selece_size-row">
+            {% for variant in product.variants %}
+              <div class="size-col {% if forloop.index == 1 %} active {% endif %}" data-variant-id="{{ variant.id }}">{{ variant.title }}</div>
+            {% endfor %}
+            {% comment %} <div class="size-col" data-variant-id="47689633759542">S</div>
+            <div class="size-col" data-variant-id="47689633792310">M</div>
+            <div class="size-col" data-variant-id="47689633825078">L</div>
+            <div class="size-col" data-variant-id="47689633857846">XL</div>
+            <div class="size-col" data-variant-id="47689633890614">2XL</div>
+            <div class="size-col" data-variant-id="47689633923382">3XL</div> {% endcomment %}
+          </div>
+        </div>
+        <div class="size_box-col-2">
+          {% comment %} {% render 'find-your-size' %} {% endcomment %}
+          <button type="button" id="easysize_button" class="easysize_button">Find Your Size</button>
+        </div>
+      </div>
+       <form action="/cart/add" class="sec1_form">        
+         <input id="sec1_form__variant-input" type="hidden" name="id" value="{{ product.variants[0].id }}"> 
+         <input type="hidden" name="quantity" value="1"> 
+        <div class="cart_row">
+          <div class="quantity-col">
+            <div class="price-col">
+              <span class="cut-prc">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+              <span class="ofr-prc">{{ product.price | money_without_trailing_zeros }}</span>
+              {% comment %} <span class="ofr-prc">$47</span>
+              <span class="cut-prc">$69</span> {% endcomment %}
+            </div>
+            <div class="cart-qty-div">
+              <button type="button" class="sub qtyBtn minusBtn">-</button>
+              <input type="text" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector" readonly>
+              <button type="button" class="add qtyBtn plusBtn">+</button>
+            </div>
+          </div>
+          <div class="cart_button-col">
+            {% comment %} <p class="ship_text">
+              <img src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick">
+              “Ship today/tomorrow if ordered within 03:43:16”
+            </p> {% endcomment %}
+            {% render 'shipping-calculate' %}
+            <button type="submit" class="addTocut-btn" data-product-id="{{ product.variants[0].id }}" data-product-qty="1">
+              <div class="spinner__wrapper">
+                <span class="loader"></span> 
+              </div>
+              <span class="money">{{ product.price | money_without_trailing_zeros }}</span>
+              ADD TO BAG
+              <img src="{{ 'cart-ic.png' | file_img_url:'27x31' }}" width="20px" height="24px">
+              <span class="quantity">(1 Item)</span>
+            </button>
+            <ul class="btn_list">
+              <li><img src="{{ 'ship-ic.png' | file_img_url:'20x20'}}" width="20" height="20" alt="ic">Buy 2 For Free Shipping</li>
+              <li><img src="{{ 'warranty-ic.png' | file_img_url:'20x20'}}" width="20" height="20" alt="ic">Free Lifetime Warranty Included</li>
+            </ul>
+          </div>
+        </div>      
+       </form> 
+
+      <div class="about-box">
+        <div class="about-box_row">
+          <div class="about-box_row-hdng active">
+            <h3>Size Chart & Fit</h3>
+          </div>
+          <div class="about-box-content" style="">
+            <ul class="about-box_list">
+              <li>
+                Fit: Perfectly tight on the arms and chest, loose around the gut. Look jacked regardless of your size.
+              </li>
+              <li>For snug fit, <mark class="highlight">we recommend sizing down</mark></li>
+              <li><button type="button" id="easysize_button" class="easysize_button">Find Your Size</button></li>
+              {% comment %} <li><a href="#" class="size-guide">Find your size</a></li> {% endcomment %}
+            </ul>
+          </div>
+        </div>
+        <div class="about-box_row">
+          <div class="about-box_row-hdng">
+            <h3>Material</h3>
+          </div>
+          <div class="about-box-content" style="display:none;">
+            <p class="about_text">Undrdog Signature 45% Hemp, 55% Recycled Polyester.</p>
+            <p class="about_text"><strong>Why hemp/recycled poly blend?</strong></p>
+            <ul class="about-box_list">
+              <li><strong>Stronger Wear:</strong> Lasts 9x longer than cotton.</li>
+              <li><strong>Super Breathable:</strong> Feels like a 2nd skin.</li>
+              <li><strong>Sweat-Wicking:</strong> Keeps you dry.</li>
+              <li><strong>Quick-Dry:</strong> Ideal for active use.</li>
+              <li><strong>Shape-Stable:</strong> No sag or stretch.</li>
+              <li><strong>Wrinkle-Resistant:</strong> Easier upkeep.</li>
+              <li><strong>Eco-Smart:</strong> Uses recycled polyester.</li>
+              <li><strong>Balanced Performance:</strong> Comfort meets function.</li>
+              <li><strong>Affordable:</strong> Quality on a budget.</li>
+              <li><strong>Sun-Safe:</strong> Natural UV defense.</li>
+              <li><strong>Hypo-allergenic:</strong> Allergy & irritation free.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-box_row">
+          <div class="about-box_row-hdng">
+            <h3>Lifetime UndrDog Warranty</h3>
+          </div>
+          <div class="about-box-content" style="display:none;">
+            <p class="about_text">
+              Don’t like the fit? Don’t like the material? Simply contact
+              <a href="mailtp:support@undrdoghemp.com">support@undrdoghemp.com</a> for an easy return. Unmatched
+              Lifetime Guarantee. Yep… we’re that <span class="cut-word">cocky</span> confident.
+            </p>
+          </div>
+        </div>
+        <div class="about-box_row">
+          <div class="about-box_row-hdng">
+            <h3>Are there other colors? How does UndrDog work?</h3>
+          </div>
+          <div class="about-box-content" style="display:none;">
+            <p class="about_text">
+              <strong>This is “Exhibit 000: Void”.</strong> The only exhibit available to the public. It’s UndrDogs’
+              Coat-of-Arms. After purchase, you’ll join thousands in the Undrdog collective with unlocked access to
+              future ‘limited edition’ exhibits (different colors, styles, designs, etc).
+            </p>
+          </div>
+        </div>
+        <div class="about-box_row">
+          <div class="about-box_row-hdng">
+            <h3>What does “Exhibit 000: Void” mean?</h3>
+          </div>
+          <div class="about-box-content" style="display:none;">
+            <p class="about_text">
+              Every UndrDog knows the feeling – that haunting emptiness when progress stalls and our goals seem distant.
+              It's the void that creeps in during moments of stillness, questioning our path. Let this shirt be more
+              than fabric; let it be a symbol, a constant reminder to bridge that void. To relentlessly push forward to
+              keep evolving, especially when the journey gets tough. Your UndrDog story is on the line.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section2">
+  <video preload="auto" loop playsinline="" width="" height="" id="sec2-video" style="display:none;">
+    <source src="{{ 'fitness-FullVid.mp4' | file_url }}" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="sec2_left">
+      <img loading="lazy"
+        data-class="LazyLoad"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+        data-src="{{ 'biceps-ic.png' | file_img_url: '50x50' }}" class="comn-icon" width="50" height="50" alt="img">
+      <h2 class="common_heading color-white"><span class="font-family1">4</span>x Stronger Than Cotton</h2>
+      <div class="sec2_bobal-strip">
+        “When your UndrDog shirt enters <br class="forMob">
+        the wardrobe, cotton shirts unravel themselves in fear.”
+      </div>
+      <p class="common_text color-white">High-tensile hemp makes this shirt almost indestructible.</p>
+    </div>
+    <div class="sec2_right">
+      <div class="sec2_vdo-btn">
+        <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's2-play-btn1.png' | file_img_url:'137x137' }}" class="s2-play-btn1" width="137" height="137" alt="img">
+        <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's2-play-btn2.png' | file_img_url:'162x46' }}" class="s2-play-btn2" width="162" height="46" alt="img">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section3">
+  <div class="container">
+    <div class="sec3_row">
+      <img loading="lazy"
+        data-class="LazyLoad"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+        data-src="{{ 't-shirt-ic.png' | file_img_url:'50x50' }}" class="comn-icon" width="50" height="50" alt="img">
+      <h2 class="common_heading">Look Jacked</h2>
+      <div class="sec3_bobal-strip">
+        “UndrDog shirts high-five every <br class="forMob">
+        muscle; &nbsp; even your shadow will flex and turn people on”
+      </div>
+      <p class="common_text">
+        Hemp’s firm resilience clings to your <br>
+        body in all the right places.
+      </p>
+      {% comment %} <img src="{{ 's3-btm-logo.png' | file_img_url:'350x112' }}" class="s3-btm-logo" width="350" height="112" alt="img">
+      <img src="{{ 's3-btm-img-m' | file_img_url:'700x496' }}.jpg" class="s3-btm-img-m forMob" width="700" height="496" alt="img"> {% endcomment %}
+    </div>
+  </div>
+  <video preload="auto" loop autoplay muted="" playsinline="" width="" height="" id="sec3-video">
+    <source src="{{ 'sec3-bg-vdo.mp4' | file_url}}" type="video/mp4">
+  </video>
+</div>
+
+<div class="section4">
+  <div class="sec4_content content-end">
+    <div>
+      <img loading="lazy"
+        data-class="LazyLoad"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+        data-src="{{ 'breathable-ic.png' | file_img_url:'50x50' }}" class="comn-icon" width="50" height="50" alt="img">
+      <h2 class="common_heading color-white">
+        Unbeatable<br>
+        Breathability
+      </h2>
+      <div class="sec4_bobal-strip">“UndrDog Shirts don't just breathe; &nbsp; they give air permission to pass through.”</div>
+      <p class="common_text color-white">
+        Hemp has natural temperature control; &nbsp; recycled <br class="forDesk">
+        poly aids air circulation.
+      </p>
+    </div>
+  </div>
+  <div class="sec4_image">
+    <video
+      class="s4-video"
+      width=""
+      height=""
+      preload="auto"
+      loop
+      autoplay
+      muted=""
+      playsinline=""
+      style="visibility: visible;"
+    >
+      <source src="{{ 'lifestyle-video1.mp4' | file_url }}" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<div class="section5">
+  <div class="container">
+    <div class="sec5_row">
+      <div class="sec5-prod">
+        <video
+          class="sec5-t-shirt"
+          width=""
+          height=""
+          preload="auto"
+          loop
+          autoplay
+          muted=""
+          playsinline=""
+          style="visibility: visible;"
+        >
+          <source src="{{ 'Thread_animation.mp4' | file_url }}" type="video/mp4">
+        </video>
+      </div>
+      <div class="sec5_right">
+        <img loading="lazy"
+          data-class="LazyLoad"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+          data-src="{{ 'drop-ic.png' | file_img_url:'50x50' }}" class="comn-icon" width="50" height="50" alt="img"/>
+        <h2 class="common_heading">
+          Sweat<span class="font-family1">-</span>Resistant <br>
+          Superpower
+        </h2>
+        <div class="sec4_bobal-strip">
+          “UndrDog shirts don’t just resist sweat; &nbsp; they <br class="forDesk">
+          make it evaporate in awe.”
+        </div>
+        <p class="common_text">
+          Hemp creates a natural barrier that is <br class="forDesk">
+          moisture-wicking (keeping you dry and smelling <br class="forDesk">
+          better than you should)
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section6">
+  <div class="container">
+    <div class="sec6_row">
+      <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'drink-ic.png' | file_img_url: '50x50' }}" class="comn-icon" width="50" height="50" alt="img">
+      <h2 class="common_heading color-white">
+        Ages Like <br>
+        Fine Whiskey
+      </h2>
+      <div class="sec6_bobal-strip">
+        “UndrDog Shirts don't fear the <br class="forMob">
+        washing machine. The machine feels <br class="forMob">
+        honored to clean it."
+      </div>
+      <p class="common_text color-white margin20">
+        <strong
+          >The average guy buys 9+ new shirts each year, or <br class="forDesk">
+          180+ over 20 years.</strong
+        >
+        UndrDog Hemp shirts grow <br class="forDesk">
+        comfier with every wash, outlasting all others.
+      </p>
+    </div>
+    <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's6-other-prod.png' | file_img_url:'807x563' }}" class="s6-other-prod" width="807" height="563" alt="img">
+    <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's6-our-prod.png' | file_img_url:'738x547' }}" class="s6-our-prod" width="738" height="547" alt="img">
+    <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's6-prod-m.png' | file_img_url:'600x332' }}" class="s6-prod-m forMob" width="600" height="332" alt="img">
+  </div>
+</div>
+
+<div class="section4 reverse">
+  <div class="sec4_content content-start" style="background:#fff;">
+    <div>
+      <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sun-ic.png' | file_img_url: '50x50'}}" class="comn-icon" width="50" height="50" alt="img">
+      <h2 class="common_heading">
+        UV Protectant <br>
+        <span class="font-family1">& </span> Hypoallergenic
+      </h2>
+      <div class="sec4_bobal-strip sec4_bobal-strip2">
+        “UndrDog Shirts don’t just block UV rays; &nbsp; they send them back to the sun with a note: 'Try harder’.”
+      </div>
+      <p class="common_text">
+        Hemp naturally has UV protection <br class="hide-mob">
+        and hypoallergenic properties. It's the <br class="hide-mob">
+        full package.
+      </p>
+    </div>
+  </div>
+  <div class="sec4_image">
+    <video
+      class="s4-video"
+      width=""
+      height=""
+      preload="auto"
+      loop
+      autoplay
+      muted=""
+      playsinline=""
+      style="visibility: visible;"
+    >
+      <source src="{{ 'lifestyle-video22.mp4' | file_url}}" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<div class="section7">
+  <div class="container">
+    <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'drink-ic.png' | file_img_url:'50x50' }}" class="comn-icon" width="50" height="50" alt="img">
+    <h2 class="common_heading color-white">100x Better for Environment</h2>
+    <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec7-img-left.png' | file_img_url:'513x926' }}" class="sec7-img-left hide-mob" width="513" height="926" alt="img">
+    <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec7-img-right.png' | file_img_url:'547x945' }}" class="sec7-img-right hide-mob" width="547" height="945" alt="img">
+
+    <div class="sec7_comparision-row hide-mob">
+      <div class="sec7_comparision-hdng">
+        <h3 class="s7_prod-name">Cotton <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'cross.png' | file_img_url:'26x26' }}" width="26" height="26" alt="ic"></h3>
+        <h3 class="s7_prod-name">UndrDog Hemp <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'tick.png' | file_img_url:'30x24' }}" width="30" height="24" alt="ic"></h3>
+      </div>
+      <div class="s7_comp-box">
+        <div class="s7_comp-box-inr">
+          <div class="s7_comp-box-inr-col">
+            <strong>Water Guzzler:</strong> Just one cotton shirt sips a massive 2,700 liters of water – that's how much
+            you consume in 2.5 years!
+          </div>
+          <div class="comp-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'comp-ic1.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+          <div class="s7_comp-box-inr-col">
+            <strong>Water Wise:</strong> Just one UndrDog Hemp/poly shirt cuts water use by up to 80% and yields twice
+            as much fiber per hectare!
+          </div>
+        </div>
+        <div class="s7_comp-box-inr">
+          <div class="s7_comp-box-inr-col">
+            <strong>Pesticide Party:</strong> Cotton uses 16% of global pesticides for just 2.5% of farmland, causing
+            50% of agricultural chemical runoff to water sources.
+          </div>
+          <div class="comp-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'comp-ic2.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+          <div class="s7_comp-box-inr-col">
+            <strong>Pesticide Zero:</strong> Hemp grows pesticide and herbicide-free, preserving 100% of the ecosystem
+            without a drop of poison.
+          </div>
+        </div>
+        <div class="s7_comp-box-inr">
+          <div class="s7_comp-box-inr-col">
+            <strong>Soil Snatcher:</strong> Cotton farming exhausts the soil, leading to a 30-50% loss in soil organic
+            matter over decades.
+          </div>
+          <div class="comp-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'comp-ic3.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+          <div class="s7_comp-box-inr-col">
+            <strong>Soil Superhero:</strong> Hemp’s roots dive deep, detoxifying the earth and can reduce soil erosion
+            by up to 700%.
+          </div>
+        </div>
+        <div class="s7_comp-box-inr">
+          <div class="s7_comp-box-inr-col">
+            <strong>Energy Intensive:</strong> Cotton needs 10,000 liters of water per kg, with high energy use, CO2
+            emissions, and uses 2.5% global farmland.
+          </div>
+          <div class="comp-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'comp-ic4.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+          <div class="s7_comp-box-inr-col">
+            <strong>Recycled poly:</strong> Combats 8M tons of ocean plastic per year, cuts 59% energy use, 32% less CO2
+            emission vs. virgin poly.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s7_row-m forMob">
+      <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec7-img-left-m.png' | file_img_url:'513x571' }}" class="sec7-img-left-m" width="513" height="571" alt="img">
+      <div class="s7-col-m">
+        <h3 class="s7_prod-name"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'cross.png' | file_img_url:'26x26' }}" width="26" height="26" alt="ic"> Cotton</h3>
+        <ul>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic1.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+              <div><strong>Water Guzzler:</strong> Just one cotton shirt sips a massive 2,700 liters of water – that's how much
+            you consume in 2.5 years!</div>
+          </li>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic2.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+              <div><strong>Pesticide Party:</strong> Cotton uses 16% of global pesticides for just 2.5% of farmland, causing
+            50% of agricultural chemical runoff to water sources.</div>
+          </li>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic3.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+              <div><strong>Soil Snatcher:</strong> Cotton farming exhausts the soil, leading to a 30-50% loss in soil organic
+            matter over decades.</div>
+          </li>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic4.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+              <div><strong>Energy Intensive:</strong> Cotton needs 10,000 liters of water per kg, with high energy use, CO2
+            emissions, and uses 2.5% global farmland.</div>
+          </li>
+        </ul>
+      </div>
+      <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec7-img-right-m.png' | file_img_url:'547x654' }}" class="sec7-img-left-m" width="547" height="654" alt="img">
+      <div class="s7-col-m" style="background:#ec612a;">
+        <h3 class="s7_prod-name"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'tick.png' | file_img_url:'30x24' }}" width="30" height="24" alt="ic"> UndrDog Hemp</h3>
+        <ul>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic1.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+            <div><strong>Water Wise:</strong> Just one UndrDog Hemp/poly shirt cuts water use by up to 80% and yields twice
+            as much fiber per hectare!</div>
+          </li>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic2.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+            <div><strong>Pesticide Zero:</strong> Hemp grows pesticide and herbicide-free, preserving 100% of the ecosystem
+            without a drop of poison.</div>
+          </li>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic3.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+            <div><strong>Soil Superhero:</strong> Hemp’s roots dive deep, detoxifying the earth and can reduce soil erosion
+            by up to 700%.</div>
+          </li>
+          <li>
+            <div class="icon-mobile"><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'comp-ic4.png' | file_img_url:'91x91' }}" width="91" height="91" alt="ic"></div>
+            <div><strong>Recycled poly:</strong> Combats 8M tons of ocean plastic per year, cuts 59% energy use, 32% less CO2
+            emission vs. virgin poly.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section8">
+  <div class="container">
+    <div class="sec8_left">
+      <h2 class="common_heading color-white">
+        UndrDog<span class="font-family1">'</span>s <br class="forMob">
+        5 Quality Checks
+      </h2>
+      <img loading="lazy"
+        data-class="LazyLoad"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+        data-src="{{ 's8-mob-img.jpg' | file_img_url:'600x620' }}" class="s8-mob-img forMob" width="600" height="620" alt="img">
+      <div class="sec8_row">
+        <div class="sec8_col">
+          <div class="s8_col-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's8-col-ic1.png' | file_img_url:'131x110' }}" width="131" height="110" alt="ic"></div>
+          <div class="s8_col-content">
+            <h3>Durability Excellence</h3>
+            <ul>
+              <li>Durable: Hemp/rec-poly high-tensile</li>
+              <li>Heavy Duty: Extra double stitch hems</li>
+              <li>Tough: Non-tear, pilling, or abrasion</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sec8_col">
+          <div class="s8_col-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's8-col-ic2.png' | file_img_url:'131x110' }}" width="131" height="110" alt="ic"></div>
+          <div class="s8_col-content">
+            <h3>Breathability <span class="font-family1">& </span> Comfort</h3>
+            <ul>
+              <li>Breathable: Thermally regulated fabric</li>
+              <li>Odor Resistant: Anti-bacteria hemp</li>
+              <li>Softness: Hemp/recycled-poly comfort</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sec8_col">
+          <div class="s8_col-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's8-col-ic3.png' | file_img_url:'131x110' }}" width="131" height="110" alt="ic"></div>
+          <div class="s8_col-content">
+            <h3>Earth<span class="font-family1">-</span>Friendly <span class="font-family1">& </span> Sustainable</h3>
+            <ul>
+              <li>Eco-Friendly: Less environmental impact</li>
+              <li>Anti-pollutant: Land, air and ocean</li>
+              <li>Pesticide-free: Poison-free farming</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sec8_col">
+          <div class="s8_col-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's8-col-ic4.png' | file_img_url:'131x110' }}" width="131" height="110" alt="ic"></div>
+          <div class="s8_col-content">
+            <h3>Advanced Performance</h3>
+            <ul>
+              <li>Moisture Wicking: Sweat-resistant</li>
+              <li>Skin-Safe: UV Protection & Hypoallergenic</li>
+              <li>Holds shape: Anti-Wrinkle, shrink or stretch</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sec8_col">
+          <div class="s8_col-icon"><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's8-col-ic5.png' | file_img_url:'131x110' }}" width="131" height="110" alt="ic"></div>
+          <div class="s8_col-content">
+            <h3>Style Excellence</h3>
+            <ul>
+              <li>Gripping: Accentuated arms and chest</li>
+              <li>Modern: Curved front & bottom, loose mid</li>
+              <li>Identity: Recognizable brand emblem</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="button_box">
+        <a href="#order" class="common_button"
+          >Choose Size <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'btn-arw.png' | file_img_url:'15x19' }}" width="15" height="19" alt="ic"
+        ></a>
+        <ul class="common_btn-list">
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Lifetime Guarantee</li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Ships Fast AF</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section9">
+  <div class="container">
+    <div class="sec9_row">
+      <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec9-img.png' | file_img_url:'533x762' }}" class="sec9-img hide-mob" width="533" height="762" alt="img">
+      <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'warranty-seal.png' | file_img_url:'231x231' }}" class="warranty-seal hide-mob" width="231" height="231" alt="img">
+      <div class="sec9_right">
+        <h2 class="common_heading color-white">
+          Free Lifetime Warranty <br>
+          <span class="color-orange">Buy Once <span class="font-family1">-</span> Wear For Life</span>
+        </h2>
+        <p class="common_text color-white margin20">
+          Stop feeding the fashion frenzy that’s now the world's 2nd most polluting industry.
+        </p>
+        <p class="common_text color-white margin20">Own an UndrDog Shirt, wear it for life, and make a difference.</p>
+
+        <div class="s9_mob-img forMob">
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec9-img.png' | file_img_url:'533x762' }}" class="sec9-img-m" width="533" height="762" alt="img">
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'warranty-seal.png' | file_img_url:'231x231' }}" class="warranty-seal" width="231" height="231" alt="img">
+        </div>
+        <div class="sec9_bobal-strip">
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 's9-strip-ic.png' | file_img_url:'49x48' }}" class="s9-strip-ic" width="49" height="48" alt="ic">
+          <p>
+            UndrDog’s Lifetime Promise: We stand by our "world's toughest shirt." Encounter any wear and tear? We've got
+            you covered with a hassle-free lifetime warranty!
+          </p>
+        </div>
+
+        <div class="button_box">
+          <a href="#order" class="common_button"
+            >Choose Size <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'btn-arw.png' | file_img_url:'15x19' }}" width="15" height="19" alt="ic"
+          ></a>
+          <ul class="common_btn-list">
+            <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Lifetime Guarantee</li>
+            <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Ships Fast AF</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section10">
+  <div class="container">
+    <div class="sec10__compare_row">
+      <div class="s10__comp_col-1">
+        <ul class="s10__comp_list">
+          <li>Feature</li>
+          <li>Durability</li>
+          <li>Softness</li>
+          <li>Breathability & Anti-Moisture</li>
+          <li>Shape Retention</li>
+          <li>Care & Maintenance</li>
+          <li>Environmental Impact</li>
+          <li>Odor Resistance</li>
+          <li>Quick Drying</li>
+          <li>Color Fastness</li>
+          <li>Anti-Snag & Pilling</li>
+          <li>UV/Allergy Protection</li>
+        </ul>
+      </div>
+      <div class="s10__comp_col-2">
+        <div class="s10__comp_col-2-top">
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'comp-logo.png' | file_img_url:'141x62' }}" class="comp-logo" width="141" height="62" alt="ic">
+        </div>
+        <ul class="s10__comp_list">
+          <li>
+            Hemp/<br class="forMob">
+            Recycled Polyester Blend
+          </li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+        </ul>
+      </div>
+      <div class="s10__comp_col-3">
+        <ul class="s10__comp_list">
+          <li>100% Cotton</li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+        </ul>
+      </div>
+      <div class="s10__comp_col-3">
+        <ul class="s10__comp_list">
+          <li>100% Hemp</li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'com-cross.png' | file_img_url:'25x23' }}" width="25" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+          <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'chk.png' | file_img_url:'32x23' }}" width="32" height="23" alt="ic"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="button_box">
+      <a href="#order" class="common_button"
+        >Choose Size <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'btn-arw.png' | file_img_url:'15x19' }}" width="15" height="19" alt="ic"
+      ></a>
+      <ul class="common_btn-list">
+        <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Lifetime Guarantee</li>
+        <li><img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Ships Fast AF</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section11">
+  <div class="container">
+    <div class="sec11_row">
+      <h2 class="common_heading">
+        Brothers Restoring Hemp<span class="font-family1">'</span>s Rightful Place, One Shirt At A Time<span class="font-family1"
+          >!</span
+        >
+      </h2>
+      <div class="sec11-strip">Why smart men are <br class="mobile"/>waking up to this…</div>
+      <p class="common_text margin20">
+        Before its 1930s ban, hemp was powering 80% of all clothing with unmatched sustainability and strength.
+      </p>
+      <p class="common_text margin30">
+        Then, in a blink, hemp was sidelined, victim to political greed and propaganda.
+      </p>
+      <p class="common_text margin30"><i>Their motive?</i></p>
+      <p class="common_text margin30">
+        Eliminate hemp to maximize profits from less sustainable cotton, timber, and synthetic textiles…
+        <strong>contributing to the world’s 3 most polluting industries!</strong>
+      </p>
+
+      <div class="s11_video-box">
+        <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'sec11-vdo-img.jpg' | file_img_url:'763x428' }}" class="sec11-vdo-img" width="763" height="428" alt="img">
+        <video controls playsinline width="100%" height="auto" id="s11-video" style="display:none;">
+          <source loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'rogan-vdo.mp4' | file_url}}" type="video/mp4">
+        </video>
+      </div>
+
+      <p class="common_text margin30">
+        Trailblazing platforms like Joe Rogan and TEDx are openly tearing down the veil, exposing the raw truth – hemp's
+        injustice at the hands of greedy elitists.
+      </p>
+      <h2 class="playbook_heading">
+        Here’s The Playbook They Used From The 1930’s Until The Tables Turned In 2018 and today:
+      </h2>
+      <div class="playbook_box">
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>17th-18th Century</h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'playbook-img1.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Hemp's Golden Era: Fuels 80% of World's Textiles, Shipbuilding, and Exploration</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img1.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>1935</h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img2.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>George W. Schlichten patented first hemp decorticator machine to improve hemp processing</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img2.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>1936</h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img3.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Anti-hemp propaganda launches to protect synthetic industry interests.</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img3.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>
+              1937<br>
+              Marijuana Tax Act
+            </h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img4.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Penalizes hemp, crippling potential.</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img4.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>
+              1970 Controlled <br>
+              Substances Act
+            </h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img5.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Wrong classification sidelines benefits.</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img5.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>1980s-1990s</h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img6.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Legal restrictions overshadow eco-advantages.</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img6.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>2018 Farm Bill</h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img7.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Legalizes hemp, acknowledging safety and versatility.</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img7.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+        <div class="playbook_row">
+          <div class="playbook_col-1">
+            <h3>2024: Undrdog</h3>
+            <div class="playbook_col-2 forMob">
+              <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img8.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+            </div>
+            <p>Boldly elevating men's fashion with premium shirts to restore hemp's heritage.</p>
+          </div>
+          <div class="playbook_col-2 hide-mob">
+            <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'playbook-img8.jpg' | file_img_url:'299x176' }}" width="299" height="176" alt="img">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec11_buttom-box">
+      <div class="sec11_buttom-box-left">
+        <h2 class="common_heading color-white">
+          Due To Scarcity of Hemp, We Are Only Adding <br class="forDesk">
+          <span class="add-number">6,837</span> New Customers <br class="forDesk">
+          In <span class="color-orange">April</span>.
+        </h2>
+        <p class="s11_btm-box-text">
+          This ensures high-quality hemp for the <br class="hide-mob">
+          Undrdog collective (you).
+        </p>
+        <div class="button_box">
+          <a href="#order" class="common_button"
+            >Choose Size <img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'btn-arw.png' | file_img_url:'15x19' }}" width="15" height="19" alt="ic"
+          ></a>
+          <ul class="common_btn-list">
+            <li><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Lifetime Guarantee</li>
+            <li><img loading="lazy"
+              data-class="LazyLoad"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Ships Fast AF</li>
+          </ul>
+        </div>
+      </div>
+      <img loading="lazy" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 's11-btm-img.png' | file_img_url:'563x680' }}" class="s11-btm-img" width="563" height="680" alt="img">
+    </div>
+  </div>
+</div>
+
+<div class="section12">
+  <div class="container">
+    <h2 class="common_heading color-white">
+      UndrDog Reviews <br>
+      <span class="color-orange">What Our Customers Say</span>
+    </h2>
+    <div class="review_row">
+      <div class="review-col">
+        <div class="review_video">
+          <img
+            loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'review-vdo-img1.jpg' | file_img_url:'640x1138' }}"
+            class="review-vdo-img review-vdo-img1"
+            width="640"
+            height="1138"
+            alt="img"
+          >
+          <video controls playsinline width="100%" height="auto" id="myVdo1" style="display:none;">
+            <source src="{{ 'bilo-Alan.mp4' | file_url }}" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="review-col_content">
+          <h3 class="review_hdng">You’re gonna love it!</h3>
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'star.png' | file_img_url:'200x33' }}" class="review_star" width="200" height="33" alt="img">
+
+          <p class="review_about">
+            “I was sceptical until I tried it on. Now I’m super happy. It does everything it says on the box, and I look
+            jacked, thank you!”
+          </p>
+          <p class="review_name">Alan B.</p>
+        </div>
+      </div>
+
+      <div class="review-col">
+        <div class="review_video">
+          <img
+            loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'review-vdo-img2.jpg' | file_img_url:'640x1138' }}"
+            class="review-vdo-img review-vdo-img2"
+            width="640"
+            height="1138"
+            alt="img"
+          >
+          <video controls playsinline width="100%" height="auto" id="myVdo2" style="display:none;">
+            <source src="{{ 'bilo-Moses.mp4' | file_url }}" type="video/mp4">
+          </video>
+        </div>
+        <div class="review-col_content">
+          <h3 class="review_hdng">Best T-shirt in my closet!</h3>
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'star.png' | file_img_url:'200x33' }}" class="review_star" width="200" height="33" alt="img">
+          <p class="review_about">
+            “Honest review on UndrDog… I run through cotton shirts, but this is strong! I highly recommend this to my
+            fellow active folks. It's durable for the gym, camping, work, and going to the club, and looks great!”
+          </p>
+          <p class="review_name">Moses P.</p>
+        </div>
+      </div>
+
+      <div class="review-col">
+        <div class="review_video">
+          <img
+            loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'review-vdo-img3.jpg' | file_img_url:'640x1138' }}"
+            class="review-vdo-img review-vdo-img3"
+            width="640"
+            height="1138"
+            alt="img"
+          >
+          <video controls playsinline width="100%" height="auto" id="myVdo3" style="display:none;">
+            <source src="{{ 'bilo-Joey.mp4' | file_url }}" type="video/mp4">
+          </video>
+        </div>
+        <div class="review-col_content">
+          <h3 class="review_hdng">You can feel the quality!</h3>
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'star.png' | file_img_url:'200x33' }}" class="review_star" width="200" height="33" alt="img">
+          <p class="review_about">
+            “I’m always on the hunt for a new, high-quality, and good-looking shirt. You can really feel the quality and
+            how strong the hemp material is, and it’s comfortable. Try it!”
+          </p>
+          <p class="review_name">Joey P.</p>
+        </div>
+      </div>
+
+      <div class="review-col">
+        <div class="review_video">
+          <img
+            loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'review-vdo-img4.jpg' | file_img_url:'640x1138' }}" 
+            class="review-vdo-img review-vdo-img4"
+            width="640"
+            height="1138"
+            alt="img"
+          >
+          <video controls playsinline width="100%" height="auto" id="myVdo4" style="display:none;">
+            <source src="{{ 'bilo-Dj.mp4' | file_url }}" type="video/mp4">
+          </video>
+        </div>
+        <div class="review-col_content">
+          <h3 class="review_hdng">I don’t sweat my butt off!</h3>
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'star.png' | file_img_url:'200x33' }}" class="review_star" width="200" height="33" alt="img">
+          <p class="review_about">
+            “As soon as I picked it up, noticed it felt heavier, but after wearing it, it was super breathable. I’m
+            super active and wear it outside in the sun, and I don’t sweat my butt off!”
+          </p>
+          <p class="review_name">DJ W.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section13">
+  <div class="container">
+    <p class="s13_sub-hdng">
+      You don’t decide to wear UndrDog Shirts, they <br class="forDesk">
+      allow you to be cloaked in greatness
+    </p>
+    <h2 class="common_heading">
+      Frequently Asked Questions
+      <br>
+      <span class="color-orange">I Dare You To Ask…</span>
+    </h2>
+    <div class="faq-container animated fadeInUp">
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading accordion-open">Will my shirt be comfortable to wear?</div>
+        <div class="acdn-content">
+          <p class="acdn-para">
+            Pfft... Feels like cloud-hug from Dwayne ‘The Rock’ Johnson––strong, comforting, but not in a weird way.
+          </p>
+          <p class="acdn-para">
+            Your UndrDog shirt was engineered for maximum comfort, breathability and softness with each wear. The
+            hemp/recycled-poly blend becomes softer with each wash. Perfect for any lifestyle!
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">How will my shirt be more durable than pure hemp or cotton shirts?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">Pfft… When UndrDog men do push-ups, they push the Earth down.</p>
+          <p class="acdn-para">
+            Quite simply, any hemp garment will leave cotton for dead. Thanks to the added strength and resilience from
+            the recycled polyester fibers, your UndrDog shirt is even MORE durable than pure help. It will not only
+            outlast 9 average cotton shirts but will withstand the toughest use.
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">How non-sweaty and breathable will my shirt be?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">Pfft… UndrDog Shirts don’t just breathe; &nbsp; they give wind orders to recirculate.</p>
+          <p class="acdn-para">
+            The blend of hemp and recycled poly in your shirt combines the natural breathability of hemp (which allows
+            air to circulate freely), with the moisture-wicking properties of polyester, which pulls sweat from the skin
+            to the fabric's surface for quick evaporation. This synergy guarantees ideal cooling and dryness with no
+            embarrassing sweat marks.
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">Can I wash my shirt normally in a washing machine?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">
+            Pfft… Your UnderDog Shirt doesn't fear the washing machine. The machine feels honored to clean it.
+          </p>
+          <p class="acdn-para">
+            Machine wash is totally fine! No special care needed, just wear then hang to dry. Won’t shrink, stretch or
+            sag, and your shirt will outlast 9 average cotton shirts! And don’t worry… UnderDog Shirts don't get lost in
+            the laundry; &nbsp; Other clothes depart in it’s presence.
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">Will my shirt really be hypoallergenic, and how?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">
+            Pfft… UndrDog Shirts cause allergens to question their life choices and pick a new profession.
+          </p>
+          <p class="acdn-para">
+            Indeed, it is true. No hype about hypoallergenic. (See what I did there?). Hemp's natural properties and the
+            absence of harsh chemicals make your shirt allergy-free and gentle on sensitive skin.
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">And UV rays?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">
+            Pfft… UndrDog Shirts don’t just block UV rays; &nbsp; they send them back to the sun with a note: 'Try harder.'
+          </p>
+          <p class="acdn-para">
+            UndrDog shirts are UV-protectant due to the dense structure of hemp fibers, which naturally block and absorb
+            UV radiation, shielding your skin from sun damage.
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">Is it true my shirt will be ‘wrinkle-free’?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">Pfft… When the UnderDog Shirt enters the room, wrinkles smooth themselves out in awe.</p>
+          <p class="acdn-para">
+            Compared to cotton? Heck yeah! Your shirt is engineered to handle the rough and tumble of daily life. Toss
+            it in your gym bag or wear it on a flight; &nbsp; a quick shake out, and you're styling again with minimal fuss
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">How does your lifetime guarantee work?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">
+            Pfft… The UndrDog lifetime guarantee isn't one-sided; &nbsp; it’s a lifetime membership to the gun show, where
+            you’re the main event.
+          </p>
+          <p class="acdn-para">
+            Welcome to the UndrDog family! You're not just buying a shirt; &nbsp; you're investing in a piece of armour that's
+            got your back for life. Here's the deal with our rock-solid lifetime warranty:
+          </p>
+          <p class="acdn-para">
+            🛡️ Unmatched Lifetime Promise: We trust in our 'world's strongest shirt' so much that we cover regular wear
+            and tear in our lifetime warranty. If it rips, snags, wears out, or does anything during your lifetime, you
+            can exchange it. No questions asked. Period.
+          </p>
+          <p class="acdn-para">📦 Shipping it back? No problem. We’ll send you a prepaid shipping label.</p>
+          <p class="acdn-para">👉🏼 Worth noting - you can not exchange an already exchanged product.</p>
+          <p class="acdn-para">
+            🙋‍♂️ Need support or have questions? Reach out anytime. Our crew is ready to keep your UndrDog experience
+            legendary - support@undrdoghemp.com
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">Will airport sniffer dogs maul me for wearing this shirt?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">Pfft… When you wear your UndrDog shirt to the airport, sniffer dogs will salute you.</p>
+          <p class="acdn-para">
+            Given UndrDog hemp shirts have zero THC, you’re all good. Unless you’re smuggling rashes of bacon in your
+            pockets, you won't become a drug-sniffing dog’s chew toy. Yes, your shirt tops the charts in hemp style, but
+            they don’t smell like weed or give you the munchies.
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">How sustainable is the production of hemp/recycled poly shirts?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">
+            Pfft… Earth doesn't just love UndrDog, it's their weapon of mass redemption against cotton
+          </p>
+          <p class="acdn-para">
+            Simply put... Cotton sucks goodness from the planet, and hemp/poly saves the planet. Facts: Cotton shirts
+            demand 2,700 liters of water—what you'd drink in 2.5 years—and use 16% of global pesticides for 2.5% of
+            farmland, leading to significant soil and water impact.
+          </p>
+          <p class="acdn-para">
+            Hemp, however, drastically reduces water use by up to 80%, doubles fiber yield, and grows without harmful
+            chemicals, enhancing soil health.
+          </p>
+          <p class="acdn-para">
+            Recycled poly fights ocean plastic, cuts energy use by 59%, and reduces CO2 emissions by 32%, making your
+            shirt a champion of sustainability.
+          </p>
+          <p class="acdn-para">
+            On average, a man buys about 9 shirts annually, totaling 180 in 20 years, intensifying the strain on our
+            planet. In contrast, just ONE UndrDog shirt is built to last a lifetime, making a greener future!
+          </p>
+        </div>
+      </div>
+      <div class="up-slide-dwn">
+        <div class="accordion acdn-heading">What’s the vision for UndrDog?</div>
+        <div class="acdn-content" style="display: none;">
+          <p class="acdn-para">
+            Pfft… UndrDog doesn’t have a vision, it’s simply fulfilling Earth's prophecy to save the planet.
+          </p>
+          <p class="acdn-para">
+            Let’s change the word to mission. UndrDog’s mission is clear: Put hemp back in the history books by
+            spearheading a revival with ambitious men styling in the planet’s most superior, durable, breathable, and
+            eco-friendly fabric blend.
+          </p>
+          <p class="acdn-para">
+            Join the movement of brothers who appreciate comfort and quality while contributing to a future where hemp's
+            true value is utilized again, one shirt at a time! Starts here
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="button_box">
+      <a href="#order" class="common_button"
+        >Choose Size <img loading="lazy"
+          data-class="LazyLoad"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+          data-src="{{ 'btn-arw.png' | file_img_url:'15x19' }}" width="15" height="19" alt="ic"
+      ></a>
+      <ul class="common_btn-list">
+        <li class="color-black">
+          <img loading="lazy"
+            data-class="LazyLoad"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+            data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Lifetime Guarantee
+        </li>
+        <li class="color-black"><img loading="lazy"
+          data-class="LazyLoad"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+          data-src="{{ 'green_tick.png' | file_img_url:'50x36' }}" width="50" height="36" alt="tick"> Ships Fast AF</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% comment %} <script type="text/javascript" src="{{ 'jquery-3-7.min.js' | asset_url }}"></script> {% endcomment %}
+{% comment %} <script type="text/javascript" src="js/bookmarkscroll.js"></script> {% endcomment %}
+{% comment %} <script type="text/javascript" src="{{ 'slick.js' | asset_url }}"></script> {% endcomment %}
+<script>
+  async function loadScripts() {
+    const jqueryPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = "{{ 'jquery-3-7.min.js' | asset_url }}";
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+
+    const slickPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = "{{ 'slick.min.js' | asset_url }}";
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+
+    await Promise.all([jqueryPromise, slickPromise]);
+  }
+
+  async function initializeSlider() {
+    await loadScripts();
+
+    $(document).ready(function () {
+      $('.slide-div').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: false,
+        asNavFor: '.slider-nav',
+        autoplay: false,
+        autoplaySpeed: 11000,
+        dots: false,
+      });
+
+      $('.slide-div').on('afterChange', function(event, slick, currentSlide, nextSlide){
+        $('video.prd-slide').each(function() {
+            this.pause();
+            this.currentTime = 0;
+          });
+        $('.prd-slide__video-play').css('visibility', 'visible');
+        $('.prd-slide__video-play').css('opacity', 1);
+        $('.prd-slide__video').prop('muted', true);
+        $('.prd-slide__video-play.mute span').text('Tap for sound');
+        $('.prd-slide__video-wrapper').removeClass('active');
+        let $video = $('.slick-current video.prd-slide');
+        if ($video.length > 0) {
+          $video.get(0).play();
+        }
+      });
+      
+      $('.slider-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.slide-div',
+        dots: false,
+        centerMode: false,
+        focusOnSelect: false,
+        infinite: true,
+        arrows: false,
+        focusOnSelect: true,
+        swipeToSlide: true,
+        pauseOnHover:false,
+        respondTo:'min',
+        rtl: false,
+        cssEase:'linear'
+      });
+    /* Video Play/Pause Events */
+    $('.prd-slide__video').prop('muted', true);
+    $('.prd-slide__video').on('click play pause', function (e) { 
+      let $target = $(this);
+      const $playBtn = $target.siblings('.prd-slide__video-play');
+      const eventType = e.originalEvent.type;
+      if(eventType !== 'click') {
+        return $playBtn.css('display', 'flex');
+      }
+      $target = $target.get(0);
+      soundMute($target);
+    });
+    $('.prd-slide__video-play').on('click', function (e) {
+      const $video = $(this).siblings('.prd-slide__video').get(0);
+      $(this).hide();
+      soundMute($video);
+    });
+
+    function soundMute(target){
+      if(!target.paused && $('.prd-slide__video').prop('muted') == false) {
+        $('.prd-slide__video-play').css('visibility', 'visible');
+        $('.prd-slide__video-play').css('opacity', 1);
+        $('.prd-slide__video').prop('muted', true);
+        $('.prd-slide__video-play.mute span').text('Tap for sound');
+        $('.prd-slide__video').prop('volume', 0);
+        $('.prd-slide__video-wrapper').removeClass('active');
+         }
+        else { 
+          $('.prd-slide__video-play').css('visibility', 'hidden');
+          $('.prd-slide__video-play').css('opacity', 0);
+          $('.prd-slide__video').prop('muted', false);
+          $('.prd-slide__video').prop('volume', 1);
+          $('.prd-slide__video-play.play span').text('Tap for mute'); 
+          $('.prd-slide__video-wrapper').addClass('active');
+          target.play(); 
+        }
+    }
+    });
+  }
+
+  initializeSlider();
+
+  
+</script>
+
+<script>
+  $(document).ready(function () {
+    
+    {% comment %} $('.size-col').click(function (e) {
+      $('.size-col').removeClass('active');
+      $(this).addClass('active');
+    }); {% endcomment %}
+
+    
+
+    //ADD QTY
+    $('.add').click(function () {
+      $(this)
+        .prev()
+        .val(+$(this).prev().val() + 1);
+    });
+
+    $('.sub').click(function () {
+      if ($(this).next().val() > 1) {
+        if ($(this).next().val() > 1)
+          $(this)
+            .next()
+            .val(+$(this).next().val() - 1);
+      }
+    });
+
+    //DESCRIPTION-ACCODIAN
+
+    $('.about-box_row-hdng').click(function (e) {
+      var thisDiv = $(this).next('.about-box-content');
+      if ($(thisDiv).is(':visible')) {
+        $(this).removeClass('active');
+        $(this).next('.about-box-content').slideUp();
+      } else {
+        $('.about-box_row-hdng').removeClass('active');
+        $(this).addClass('active');
+        $('.about-box-content').slideUp();
+        $(this).next('.about-box-content').slideDown();
+      }
+    });
+
+    $('.sec2_vdo-btn').click(function (e) {
+      $(this).hide();
+      $('#sec2-video').show();
+      $('#sec2-video').get(0).play();
+      $('.sec2_left').hide();
+    });
+
+    $(document).on('click', '#sec2-video', function (e) {
+      var video = $(this).get(0);
+      video.pause();
+      $('.sec2_vdo-btn').show();
+      $('.sec2_left').show();
+    });
+
+    $('.review_row').slick({
+      dots: false,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplaySpeed: 4000,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1023,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
+
+    $('.review-vdo-img1').click(function (e) {
+      $(this).hide();
+      $('#myVdo1').show().get(0).play();
+    });
+
+    $('.review-vdo-img2').click(function (e) {
+      $(this).hide();
+      $('#myVdo2').show().get(0).play();
+    });
+
+    $('.review-vdo-img3').click(function (e) {
+      $(this).hide();
+      $('#myVdo3').show().get(0).play();
+    });
+
+    $('.review-vdo-img4').click(function (e) {
+      $(this).hide();
+      $('#myVdo4').show().get(0).play();
+    });
+
+    $('.sec11-vdo-img').click(function (e) {
+      $(this).hide();
+      $('#s11-video').show().get(0).play();
+    });
+
+    $('.acdn-heading').click(function () {
+      var questionDiv = $(this);
+      var answerDiv = $(this).next('.acdn-content');
+      var idx = $('.acdn-content').index(answerDiv);
+
+      $('.acdn-content').each(function (index, ansDiv) {
+        if (index != idx && $(ansDiv).is(':visible')) {
+          $(ansDiv).slideUp(500, function () {
+            $(ansDiv).prev('.acdn-heading').removeClass('accordion-open');
+          });
+        }
+      });
+
+      if (answerDiv.is(':visible')) {
+        answerDiv.stop().slideUp(500, function () {
+          questionDiv.removeClass('accordion-open');
+        });
+      } else {
+        questionDiv.addClass('accordion-open');
+        answerDiv.stop().slideDown(500);
+      }
+    });
+  });
+
+  $(document).scroll(function () {
+    $('.find-your-size.find-your-size-wrapper').removeClass('show');
+  });
+
+  /* Size Chart Control */
+  $('.size-guide').click(function (e) {
+    e.preventDefault();
+    $('.find-your-size.find-your-size-wrapper').addClass('show');
+  });
+
+
+  /* Form Variant Control */
+  const $sizeSwatch = $('#order .size-col');
+  {% comment %} const $variantIdInput = $('#sec1_form__variant-input'); {% endcomment %}
+
+  $sizeSwatch.click(function() {
+    const $target = $(this);
+    const variantId = $target.data('variant-id');
+
+    $sizeSwatch.removeClass('active');
+    $target.addClass('active');
+    $('.addTocut-btn').attr('data-product-id', variantId);
+    {% comment %} $variantIdInput.val(variantId); {% endcomment %}
+  });
+
+  //CHANGE PRICE AND QUANTITY
+    //PLUS QTY
+    $('.plusBtn').click(function (e) {
+      e.preventDefault();
+      let quantity = parseInt($('#Quantity').val());
+      let priceString = $('.ofr-prc').text();
+      let priceWithoutDollarSign = parseInt(priceString.replace('$', ''))*100;
+      quantity++;
+
+      $('.quantity').html(`(${quantity} ${quantity == 1 ? ' Item': ' Items'})`); 
+      $('.money').html(Shopify.formatMoney(quantity * priceWithoutDollarSign));
+      
+      $('.addTocut-btn').attr('data-product-qty', quantity);
+    });
+    //MINUS QTY
+    $('.minusBtn').click(function (e) {
+      e.preventDefault();
+      let quantity = parseInt($('#Quantity').val());
+      if (quantity <= 1) {
+          return;
+        } else {
+        let priceString = $('.ofr-prc').text();
+        let priceWithoutDollarSign = parseInt(priceString.replace('$', ''))*100;
+        quantity--;
+        $('.quantity').html(`(${quantity} ${quantity == 1 ? ' Item': ' Items'})`);
+        $('.money').html(Shopify.formatMoney(quantity * priceWithoutDollarSign));
+        $('.addTocut-btn').attr('data-product-qty', quantity);
+      }
+    });
+
+</script>
+<script>
+  function redirectToCheckout() {
+    window.location.href = '/checkout';
+  }
+  async function addItemToCart(id, quantity) {
+    try {
+      let response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: [{ id: id, quantity: quantity }] })
+      });
+
+      if(response.status === 200) { 
+        redirectToCheckout();
+      }
+    }
+    catch(e) {
+      console.log('[INDEX] ERROR ON ADDING ITEM TO CART AND/OR PROCEEDING TO CHECKOUT.');
+      console.error(e);
+    }
+  }
+  const btn = document.querySelector('.addTocut-btn');
+
+      btn.addEventListener('click', (e) => { 
+        const spinner = document.querySelector('.spinner__wrapper');
+        spinner.classList.add('show');
+        const productId = btn.getAttribute('data-product-id');
+        const productQty = btn.getAttribute('data-product-qty');
+        addItemToCart(
+          productId,
+          productQty
+        ); 
+      });
+</script>
+
+{% schema %}
+{
+  "name": "New home page section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Video",
+      "label": "t:sections.video.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "t:sections.video.settings.enable_video_looping.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__1.content"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video.settings.video.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__2.content"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.video.settings.paragraph.content"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "t:sections.video.settings.video_url.label",
+      "info": "t:sections.video.settings.video_url.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.video.settings.cover_image.label"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "t:sections.video.settings.description.label",
+      "info": "t:sections.video.settings.description.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__3.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.video.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "New home page section"
+    }
+  ]
+}
+{% endschema %}

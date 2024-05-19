@@ -8,6 +8,14 @@
 .scroll-trigger:where(.gradient.video-section__media) {
   background: transparent;
 }
+.s4-rgt-img,
+  .s4-video {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
 .video-section__media.global-media-settings--full-width {
   padding-bottom: var(--ratio-percent);
