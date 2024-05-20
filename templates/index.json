@@ -215,7 +215,7 @@
         "text_7zcMrf": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>M.POLLO A MARCA QUE INSPIRA<\/p>",
             "text_style": "body"
           }
         },
@@ -234,6 +234,7 @@
         "button_EzTTUx"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/Captura_de_tela_2024-05-19_225757.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
