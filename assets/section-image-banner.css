@@ -5,7 +5,20 @@
   z-index: auto;
   isolation: isolate;
 }
-
+.banner__content{
+  position: absolute!important;
+  padding: 0!important;
+  width: auto!important;
+  top: 10%;
+  left: 10%;
+}
+.sec4_image{
+  width: 100%;
+}
+.s4-video {
+  width: 100%;
+  display: block;
+}
 .banner__box {
   text-align: center;
 }
@@ -148,7 +161,15 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-
+  .banner__content{
+    padding: 0!important;
+    min-height: 0!important;
+    top: 10%;
+    left: 0;
+  }
+  .banner__content .banner__box{
+    padding: 0!important;
+  }
   .banner--stacked {
     height: auto;
   }
@@ -436,7 +457,10 @@
 .banner__heading {
   margin-bottom: 0;
 }
-
+.banner__box>*:first-child,
+.banner__heading {
+  text-shadow: 1px 1px 2px black;
+}
 .banner__box .banner__heading + * {
   margin-top: 1rem;
 }
