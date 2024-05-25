@@ -35,6 +35,7 @@
         "button"
       ],
       "settings": {
+        "video": "shopify:\/\/files\/videos\/ILICITO - Inverno 2024 - Enchanté (720p).mp4",
         "image": "shopify:\/\/shop_images\/Design_sem_nome.png",
         "image_overlay_opacity": 40,
         "image_height": "small",
@@ -42,25 +43,10 @@
         "show_text_box": false,
         "desktop_content_alignment": "left",
         "color_scheme": "scheme-5",
-        "image_behavior": "none",
+        "image_behavior": "zoom-in",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
-      }
-    },
-    "video_Cfjg4m": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video": "shopify:\/\/files\/videos\/ILICITO - Inverno 2024 - Enchanté (720p).mp4",
-        "video_url": "",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-4",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "multicolumn": {
@@ -147,7 +133,7 @@
         "button_link": "",
         "color_scheme": "scheme-2",
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "padding_top": 12,
         "padding_bottom": 12
       }
@@ -460,7 +446,6 @@
   },
   "order": [
     "image_banner",
-    "video_Cfjg4m",
     "multicolumn",
     "rich_text",
     "featured_collection1",
